@@ -1,0 +1,176 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Tiles/Cube.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 0.566406, 0.566406, 0.566406, 1 )
+albedo_texture = ExtResource( 2 )
+metallic = 0.0
+metallic_specular = 0.0
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 0.2, 0.2, 0.2 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Albedo", "Flags", "Metallic", "Parameters", "Roughness", "UV1", "Vertex Color" ]
+
+[sub_resource type="CubeMesh" id=2]
+
+size = Vector3( 256, 0.1, 16 )
+subdivide_width = 0
+subdivide_height = 0
+subdivide_depth = 0
+
+[sub_resource type="ConcavePolygonShape" id=3]
+
+data = PoolVector3Array( -128, 0.05, 8, 128, 0.05, 8, -128, -0.05, 8, 128, 0.05, 8, 128, -0.05, 8, -128, -0.05, 8, 128, 0.05, -8, -128, 0.05, -8, 128, -0.05, -8, -128, 0.05, -8, -128, -0.05, -8, 128, -0.05, -8, 128, 0.05, 8, 128, 0.05, -8, 128, -0.05, 8, 128, 0.05, -8, 128, -0.05, -8, 128, -0.05, 8, -128, 0.05, -8, -128, 0.05, 8, -128, -0.05, -8, -128, 0.05, 8, -128, -0.05, 8, -128, -0.05, -8, 128, 0.05, 8, -128, 0.05, 8, 128, 0.05, -8, -128, 0.05, 8, -128, 0.05, -8, 128, 0.05, -8, -128, -0.05, 8, 128, -0.05, 8, -128, -0.05, -8, 128, -0.05, 8, 128, -0.05, -8, -128, -0.05, -8 )
+
+[node name="MeshInstance" type="Spatial"]
+
+_sections_unfolded = [ "Geometry", "Transform" ]
+
+[node name="MeshInstance" parent="." instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 29.4401, 0.767237, 3.95026 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance8" parent="." instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 95.878, 0.767237, -3.88417 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance11" parent="." instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 219.813, 0.767237, -3.88417 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance2" parent="." instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 48.2819, 0.767237, -4.0549 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance13" parent="." instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 172.217, 0.767237, 3.75756 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance6" parent="." instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 114.72, 0.767237, 3.75756 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance14" parent="." instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 238.655, 0.767237, 3.75756 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance3" parent="." instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 64.1853, 0.767237, 3.75756 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance10" parent="." instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 188.12, 0.767237, 3.75756 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance5" parent="." instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 130.623, 0.767237, 3.75756 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance12" parent="." instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 254.558, 0.767237, 3.75756 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance4" parent="." instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 79.1205, 0.767237, -4.25946 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance9" parent="." instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 203.055, 0.767237, -4.25946 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance7" parent="." instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 145.559, 0.767237, -4.25946 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance15" type="MeshInstance" parent="."]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 128, 0, 0 )
+layers = 1
+material_override = SubResource( 1 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance15"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 0, 0 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance15/StaticBody"]
+
+shape = SubResource( 3 )
+disabled = false
+
+
