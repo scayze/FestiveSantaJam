@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://VehicleBody.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Levels/000.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Tiles/Cube.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Tiles/Cube.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Data/Textures/groundtexture.png" type="Texture" id=4]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -105,6 +105,108 @@ adjustment_contrast = 1.0
 adjustment_saturation = 1.0
 _sections_unfolded = [ "Background", "Fog" ]
 
+[sub_resource type="SpatialMaterial" id=3]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 4 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 3, 3, 3 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = true
+uv2_triplanar_sharpness = 17.1484
+proximity_fade_enable = false
+distance_fade_enable = false
+
+[sub_resource type="SpatialMaterial" id=4]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 4 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 3, 3, 3 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = true
+uv2_triplanar_sharpness = 17.1484
+proximity_fade_enable = false
+distance_fade_enable = false
+
 [node name="World" type="Node"]
 
 script = ExtResource( 1 )
@@ -133,26 +235,70 @@ doppler/tracking = 0
 
 environment = SubResource( 2 )
 
-[node name="MeshInstance" parent="." instance=ExtResource( 3 )]
+[node name="MeshInstance5" parent="." instance=ExtResource( 3 )]
 
-[node name="MeshInstance2" parent="." instance=ExtResource( 4 )]
-
-transform = Transform( 7.83625, 0.201293, 0, -1.61034, 0.979531, 0, 0, 0, 8, 10.2121, -0.633053, 0 )
+transform = Transform( 0.704975, 0.399586, 7.2996, 0.626221, 0.910403, -3.25, -7.94423, 0.107225, 0.391582, -4.69911, 4.22233, -0.440957 )
+material/0 = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="MeshInstance4" parent="." instance=ExtResource( 4 )]
+[node name="MeshInstance6" parent="." instance=ExtResource( 3 )]
 
-transform = Transform( 7.96893, 0.0880476, 0, -0.704381, 0.996116, 0, 0, 0, 8, 13.0876, -0.497144, 0 )
+transform = Transform( 0.566714, 0.211013, 7.7993, 0.753643, 0.971584, -1.7371, -7.94423, 0.107225, 0.391582, 5.0733, 0.940056, -0.0281549 )
+material/0 = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="MeshInstance3" parent="." instance=ExtResource( 4 )]
+[node name="MeshInstance7" parent="." instance=ExtResource( 3 )]
 
-transform = Transform( 7.40589, 0.378168, 0, -3.02535, 0.925737, 0, 0, 0, 8, 1.52394, 1.24721, 0 )
+transform = Transform( -0.0651606, -0.0492354, 7.99003, 0.529528, 0.99657, 0.39734, -7.98219, 0.0665143, -0.0388655, 15.2407, -0.137771, 0.0717899 )
+material/0 = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="MeshInstance5" parent="." instance=ExtResource( 4 )]
+[node name="MeshInstance8" parent="." instance=ExtResource( 3 )]
 
-transform = Transform( 7.75457, 0.245794, 0, -1.96636, 0.969322, 0, 0, 0, 8, 3.67789, 0.818955, 0 )
+transform = Transform( -0.0556338, -0.00274441, 8.54438, 0.499789, 0.998042, 0.0237701, -7.9842, 0.0624926, -0.0507018, 31.6723, 0.216603, -0.0591798 )
+material/0 = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance13" parent="." instance=ExtResource( 3 )]
+
+transform = Transform( -0.0556338, -0.00274441, 8.54438, 0.499789, 0.998042, 0.0237701, -7.9842, 0.0624926, -0.0507018, 99.819, 0.216603, -0.203042 )
+material/0 = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance9" parent="." instance=ExtResource( 3 )]
+
+transform = Transform( -0.0556338, -0.00274441, 8.54438, 0.499789, 0.998042, 0.0237701, -7.9842, 0.0624926, -0.0507018, 48.6983, 0.216603, 0.0113632 )
+material/0 = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance15" parent="." instance=ExtResource( 3 )]
+
+transform = Transform( -0.0556338, -0.00274441, 8.54438, 0.499789, 0.998042, 0.0237701, -7.9842, 0.0624926, -0.0507018, 116.853, 0.216603, -0.132499 )
+material/0 = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance10" parent="." instance=ExtResource( 3 )]
+
+transform = Transform( -0.0556338, -0.00274441, 8.54438, 0.499789, 0.998042, 0.0237701, -7.9842, 0.0624926, -0.0507018, 65.7263, 0.216603, -0.0490015 )
+material/0 = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance14" parent="." instance=ExtResource( 3 )]
+
+transform = Transform( -0.0556338, -0.00274441, 8.54438, 0.499789, 0.998042, 0.0237701, -7.9842, 0.0624926, -0.0507018, 133.951, 0.216603, -0.192863 )
+material/0 = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance11" parent="." instance=ExtResource( 3 )]
+
+transform = Transform( -0.0556338, -0.00274441, 8.54438, 0.499789, 0.998042, 0.0237701, -7.9842, 0.0624926, -0.0507018, 82.7777, 0.216603, -0.131779 )
+material/0 = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance12" parent="." instance=ExtResource( 3 )]
+
+transform = Transform( -0.0556338, -0.00274441, 8.54438, 0.499789, 0.998042, 0.0237701, -7.9842, 0.0624926, -0.0507018, 150.924, 0.216603, -0.275641 )
+material/0 = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 
