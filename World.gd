@@ -53,7 +53,6 @@ func spawn_snow():
 		for y in range(-1,2):
 			var snow = scene_snow.instance()
 			snow.translation = Vector3(16+x*32,20,y*32)
-			print(snow.translation)
 			snow_parts.append(snow)
 			add_child(snow)
 

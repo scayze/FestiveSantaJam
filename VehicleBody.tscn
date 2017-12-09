@@ -13,7 +13,9 @@ subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
-[node name="Vehicle" type="VehicleBody"]
+[node name="Vehicle" type="VehicleBody" groups=[
+"player",
+]]
 
 input_ray_pickable = true
 input_capture_on_drag = false
