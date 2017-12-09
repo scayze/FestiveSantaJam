@@ -11,7 +11,8 @@ func _ready():
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
-
+func reset():
+	self.show()
 
 func _on_Play_pressed():
 	var selected_level = level_selector.selected_level

@@ -1,6 +1,7 @@
 extends Node
 
 var scene_snow = preload("res://vfx/Particles.tscn")
+onready var main_menu = get_node("Menu")
 var vehicle
 
 var current_level
@@ -21,6 +22,7 @@ func _ready():
 
 func spawn_level(path):
 	var l = load(path).instance()
+	current_level = l
 	vehicle = l.find_node("Vehicle")
 	add_child(l)
 	print("Level spawned")
@@ -34,6 +36,12 @@ func _process(delta):
 func play(path):
 	state = PLAY
 	spawn_level(path)
+
+func finish():
+	state = MENU
+	current_level.queue_free()
+	main_menu.reset()
+	pass
 
 func menu_update():
 #	if Input.is_action_just_pressed("ui_left"):
