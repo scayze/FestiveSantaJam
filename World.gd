@@ -17,7 +17,6 @@ var state = MENU
 func _ready():
 	load_levels()
 	spawn_snow()
-	spawn_level("res://Levels/002.tscn")
 
 
 func spawn_level(path):
@@ -27,9 +26,14 @@ func spawn_level(path):
 	print("Level spawned")
 
 func _process(delta):
-	snow_update()
 	if state == MENU: menu_update()
-	elif state == PLAY: play_update()
+	elif state == PLAY:
+		play_update()
+		snow_update()
+
+func play(path):
+	state = PLAY
+	spawn_level(path)
 
 func menu_update():
 #	if Input.is_action_just_pressed("ui_left"):

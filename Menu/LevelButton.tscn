@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Menu/LevelButton.gd" type="Script" id=1]
+
+[node name="LevelButton" type="Button"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 200.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+script = ExtResource( 1 )
+_sections_unfolded = [ "Rect" ]
+level = "res://Levels/002.tscn"
+
+[connection signal="pressed" from="." to="." method="_on_LevelButton_pressed"]
+
+
