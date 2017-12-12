@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/snowflake.png-f8cd5d78238aad87947a5229983a9917.s3tc.stex"
-path.etc2="res://.import/snowflake.png-f8cd5d78238aad87947a5229983a9917.etc2.stex"
+path.s3tc="res://.import/texture.tga-e4cfdc337888d1086de3d76321a19eb5.s3tc.stex"
+path.etc2="res://.import/texture.tga-e4cfdc337888d1086de3d76321a19eb5.etc2.stex"
 
 [deps]
 
-source_md5="7e77aa0eb305169ca461a78c7870712b"
+source_md5="92dc33fc7fe4576c4c357ab85afd9058"
 
 [params]
 
@@ -20,7 +20,7 @@ flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=1
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://VehicleBody.gd" type="Script" id=1]
+[ext_resource path="res://Vehicle.gd" type="Script" id=1]
+[ext_resource path="res://Mesh/van.tres" type="ArrayMesh" id=2]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -19,23 +20,23 @@ subdivide_depth = 0
 
 input_ray_pickable = true
 input_capture_on_drag = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 2
+collision_mask = 3
 engine_force = 0.0
 brake = 0.0
 steering = 0.0
 mass = 100.0
 friction = 1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Mass", "Motion" ]
-inverse_acceleration = 20.0
+_sections_unfolded = [ "Collision", "Mass", "Motion" ]
 force = 40.0
 STEER_LIMIT = -0.2
 STEER_SPEED = 1.0
+SPEED_LIMIT = 35
 
 [node name="Camera" type="Camera" parent="."]
 
-transform = Transform( -1, 0, -8.74228e-08, -2.38008e-08, 0.962227, 0.272249, 8.41205e-08, 0.272249, -0.962227, 0, 2.5, -5 )
+transform = Transform( -1, 0, -8.74228e-008, -2.38008e-008, 0.962227, 0.272249, 8.41205e-008, 0.272249, -0.962227, 0, 4.19274, -6.11083 )
 projection = 0
 fov = 70.0
 near = 0.05
@@ -58,7 +59,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="VehicleWheel" type="VehicleWheel" parent="."]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.25, 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, -0.25, 1 )
 use_as_traction = true
 use_as_steering = true
 wheel_roll_influence = 0.1
@@ -86,10 +87,13 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="VehicleWheel2" type="VehicleWheel" parent="."]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.25, 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.25, 1 )
 use_as_traction = true
 use_as_steering = true
 wheel_roll_influence = 0.1
@@ -118,6 +122,9 @@ mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="VehicleWheel3" type="VehicleWheel" parent="."]
 
@@ -150,6 +157,9 @@ mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="VehicleWheel4" type="VehicleWheel" parent="."]
 
@@ -179,6 +189,26 @@ lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+
+transform = Transform( -2.71011e-007, 6.2, 0, -6.2, -2.71011e-007, 0, 0, 0, 6.2, 0.071219, -0.32487, -0.0764373 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]

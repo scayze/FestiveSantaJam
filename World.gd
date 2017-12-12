@@ -3,6 +3,7 @@ extends Node
 var scene_snow = preload("res://vfx/Particles.tscn")
 onready var main_menu = get_node("Menu")
 var vehicle
+onready var camera = get_node("Camera")
 
 var current_level
 var snow_parts = []
@@ -30,6 +31,8 @@ func spawn_level(path):
 func _process(delta):
 	if state == MENU: menu_update()
 	elif state == PLAY:
+		camera.translation = vehicle.translation - Vector3(8,-9,0)
+		camera.translation.z = 0
 		play_update()
 		snow_update()
 
