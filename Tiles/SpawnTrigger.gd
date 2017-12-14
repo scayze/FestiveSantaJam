@@ -1,15 +1,16 @@
 extends Area
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var hit = false
 
 func _ready():
 	for child in get_children():
-		if child.has_method("vanish"): child.vanish()
+		child.visible = false
 	pass
 
 func _on_Area_body_entered( body ):
 	if not body.is_in_group("player"): return
+	if hit: return
+	hit = true
 	for child in get_children():
+		child.visible = true
 		if child.has_method("spawn"): child.spawn()

@@ -63,7 +63,7 @@ uv2_triplanar = false
 uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
-_sections_unfolded = [ "Albedo" ]
+_sections_unfolded = [ "Albedo", "Flags" ]
 
 [node name="Ghost" type="Area"]
 
@@ -88,6 +88,7 @@ reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 duration = 5
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

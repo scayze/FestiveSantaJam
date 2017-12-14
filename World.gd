@@ -2,16 +2,20 @@ extends Node
 
 var scene_snow = preload("res://vfx/Particles.tscn")
 onready var main_menu = get_node("Menu")
+onready var finish_menu = get_node("FinishMenu")
+onready var timer = get_node("Timer")
 var vehicle
 onready var camera = get_node("Camera")
 
 var current_level
+var current_path
 var snow_parts = []
 var levels = []
 
 enum game_states {
 	MENU
 	PLAY
+	POST_PLAY
 }
 
 var state = MENU
@@ -20,43 +24,51 @@ func _ready():
 	load_levels()
 	spawn_snow()
 
-
+func restart():
+	play(current_path)
+	print("Level restarted")
+	
 func spawn_level(path):
 	var l = load(path).instance()
+	if current_level: current_level.queue_free()
 	current_level = l
+	current_path = path
 	vehicle = l.find_node("Vehicle")
 	add_child(l)
 	print("Level spawned")
 
 func _process(delta):
-	if state == MENU: menu_update()
+	if state == MENU: menu_update(delta)
 	elif state == PLAY:
 		camera.translation = vehicle.translation - Vector3(8,-9,0)
 		camera.translation.z = 0
-		play_update()
+		play_update(delta)
 		snow_update()
 
 func play(path):
 	state = PLAY
+	finish_menu.hide()
+	timer.text = "0.0"
+	timer.show()
 	spawn_level(path)
 
 func finish():
+	state = POST_PLAY
+	finish_menu.show()
+	timer.hide()
+
+func back():
 	state = MENU
+	timer.hide()
 	current_level.queue_free()
+	finish_menu.hide()
 	main_menu.reset()
+
+func menu_update(delta):
 	pass
 
-func menu_update():
-#	if Input.is_action_just_pressed("ui_left"):
-#		for level in level_instances:
-#			level.translation.z -= 32
-#	if Input.is_action_just_pressed("ui_right"):
-#		for level in level_instances:
-#			level.translation.z += 32
-	pass
-
-
-func play_update():
+func play_update(delta):
+	timer.text = str(float(timer.text) + delta).pad_decimals(2)
 	pass
 
 func spawn_snow():
