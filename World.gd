@@ -3,10 +3,11 @@ extends Node
 var scene_snow = preload("res://vfx/Particles.tscn")
 onready var main_menu = get_node("Menu")
 onready var finish_menu = get_node("FinishMenu")
+onready var pause_menu = get_node("PauseMenu")
 onready var timer = get_node("Timer")
-var vehicle
 onready var camera = get_node("Camera")
 
+var vehicle
 var current_level
 var current_path
 var snow_parts = []
@@ -38,12 +39,22 @@ func spawn_level(path):
 	print("Level spawned")
 
 func _process(delta):
-	if state == MENU: menu_update(delta)
-	elif state == PLAY:
-		camera.translation = vehicle.translation - Vector3(8,-9,0)
-		camera.translation.z = 0
-		play_update(delta)
-		snow_update()
+	if state == MENU: pass#menu_update(delta)
+	elif state == PLAY: play_update(delta)
+
+
+func play_update(delta):
+	camera.translation = vehicle.translation - Vector3(8,-9,0)
+	camera.translation.z = 0
+	snow_update()
+	
+	if Input.is_action_just_pressed("restart"): restart()
+	if Input.is_action_just_pressed("pause"):
+		pause_menu.visible = not pause_menu.visible
+		get_tree().set_pause(not get_tree().is_paused())
+		print(get_tree().is_paused())
+	
+	pass
 
 func play(path):
 	state = PLAY
@@ -60,16 +71,9 @@ func finish():
 func back():
 	state = MENU
 	timer.hide()
-	current_level.queue_free()
+	if current_level: current_level.queue_free()
 	finish_menu.hide()
 	main_menu.reset()
-
-func menu_update(delta):
-	pass
-
-func play_update(delta):
-	timer.text = str(float(timer.text) + delta).pad_decimals(2)
-	pass
 
 func spawn_snow():
 	for x in range(8):
