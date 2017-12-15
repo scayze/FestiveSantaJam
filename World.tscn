@@ -52,7 +52,16 @@ _sections_unfolded = [ "Pause", "custom_fonts" ]
 [node name="Menu" parent="." instance=ExtResource( 3 )]
 
 pause_mode = 2
-_sections_unfolded = [ "Pause", "custom_fonts" ]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -459.0
+margin_top = -265.0
+margin_right = -351.0
+margin_bottom = -223.0
+size_flags_stretch_ratio = 2.0
+_sections_unfolded = [ "Anchor", "Grow Direction", "Pause", "custom_fonts" ]
 
 [node name="Camera" type="Camera" parent="."]
 
@@ -74,12 +83,28 @@ _sections_unfolded = [ "Transform" ]
 
 pause_mode = 2
 visible = false
-_sections_unfolded = [ "Pause" ]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -509.0
+margin_top = -297.0
+margin_right = -469.0
+margin_bottom = -257.0
+_sections_unfolded = [ "Anchor", "Pause" ]
 
 [node name="PauseMenu" parent="." instance=ExtResource( 5 )]
 
 pause_mode = 2
 visible = false
-_sections_unfolded = [ "Pause" ]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -511.0
+margin_top = -302.0
+margin_right = -471.0
+margin_bottom = -262.0
+_sections_unfolded = [ "Anchor", "Pause" ]
 
 

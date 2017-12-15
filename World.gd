@@ -31,7 +31,7 @@ func restart():
 	
 func spawn_level(path):
 	var l = load(path).instance()
-	if current_level: current_level.queue_free()
+	if current_level: current_level.free()
 	current_level = l
 	current_path = path
 	vehicle = l.find_node("Vehicle")
@@ -53,8 +53,6 @@ func play_update(delta):
 		pause_menu.visible = not pause_menu.visible
 		get_tree().set_pause(not get_tree().is_paused())
 		print(get_tree().is_paused())
-	
-	pass
 
 func play(path):
 	state = PLAY
@@ -71,21 +69,22 @@ func finish():
 func back():
 	state = MENU
 	timer.hide()
-	if current_level: current_level.queue_free()
+	if current_level:
+		current_level.queue_free()
+		current_level = null
 	finish_menu.hide()
 	main_menu.reset()
 
 func spawn_snow():
 	for x in range(8):
-		for y in range(-1,2):
-			var snow = scene_snow.instance()
-			snow.translation = Vector3(16+x*32,20,y*32)
-			snow_parts.append(snow)
-			add_child(snow)
+		var snow = scene_snow.instance()
+		snow.translation = Vector3(16+x*32,30,0)
+		snow_parts.append(snow)
+		add_child(snow)
 
 func snow_update():
 	for part in snow_parts:
-		if (part.translation - vehicle.translation).length() < 80:
+		if (part.translation - vehicle.translation).length() < 120:
 			part.visible = true
 		else:
 			part.visible = false

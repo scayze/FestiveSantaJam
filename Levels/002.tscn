@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Vehicle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/StaticCube.tscn" type="PackedScene" id=2]
@@ -7,24 +7,23 @@
 [ext_resource path="res://Tiles/Snowman.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Tiles/FinishTrigger.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Tiles/RigidBlock.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Tiles/Powerups/SpeedUp.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Tiles/Powerups/NoSteer.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Tiles/Powerups/Ghost.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Tiles/rock02.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Tiles/rock04.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Tiles/rock05.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Tiles/rock01.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Tiles/tree01.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Tiles/tree02.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Tiles/rock03.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Tiles/tree03.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Tiles/rock02.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Tiles/rock04.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Tiles/rock05.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Tiles/rock01.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Tiles/tree01.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Tiles/tree02.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Tiles/rock03.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Tiles/tree03.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Tiles/Present.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Tiles/Present.gd" type="Script" id=17]
 
 [sub_resource type="GIProbeData" id=7]
 
 bounds = AABB( -66.3568, -20.8457, -28.9187, 132.714, 41.6913, 57.8375 )
 cell_size = 0.518413
 to_cell_xform = Transform( 1.92896, 0, 0, 0, 1.92896, 0, 0, 0, 1.92896, 128, 40.2105, 55.7832 )
-dynamic_data = PoolIntArray( 0, 9, 256, 128, 128, 1, 0, 0, 0, 1098907648, 1098907648, 0, 701058960, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+dynamic_data = PoolIntArray( 0, 9, 256, 128, 128, 1, 0, 0, 0, 0, 602232528, 0, 0, 0, 52974528, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
 dynamic_range = 4
 energy = 1.0
 bias = 1.5
@@ -33,15 +32,15 @@ propagation = 1.0
 interior = false
 compress = false
 
-[sub_resource type="ProceduralSky" id=1]
+[sub_resource type="ProceduralSky" id=8]
 
 radiance_size = 4
-sky_top_color = Color( 0.0470588, 0.454902, 0.976471, 1 )
-sky_horizon_color = Color( 0.556863, 0.823529, 0.909804, 1 )
+sky_top_color = Color( 0, 0.438818, 1, 1 )
+sky_horizon_color = Color( 0.348633, 0.575607, 0.929688, 1 )
 sky_curve = 0.25
 sky_energy = 1.0
-ground_bottom_color = Color( 0.101961, 0.145098, 0.188235, 1 )
-ground_horizon_color = Color( 0.482353, 0.788235, 0.952941, 1 )
+ground_bottom_color = Color( 0, 0.357422, 0.714844, 1 )
+ground_horizon_color = Color( 0, 0.65, 1, 1 )
 ground_curve = 0.01
 ground_energy = 1.0
 sun_color = Color( 1, 1, 1, 1 )
@@ -52,11 +51,12 @@ sun_angle_max = 100.0
 sun_curve = 0.05
 sun_energy = 16.0
 texture_size = 2
+_sections_unfolded = [ "Ground", "Sky" ]
 
 [sub_resource type="Environment" id=2]
 
 background_mode = 2
-background_sky = SubResource( 1 )
+background_sky = SubResource( 8 )
 background_sky_custom_fov = 0.0
 background_color = Color( 0, 0, 0, 1 )
 background_energy = 0.5
@@ -347,20 +347,6 @@ gravity_scale = 0.75
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.4327, 1.53833, 4.97956 )
 gravity_scale = 0.75
 
-[node name="SpeedUp" parent="." instance=ExtResource( 8 )]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.2017, 1.57468, 1.7385 )
-speed_up = 10
-
-[node name="NoSteer" parent="." instance=ExtResource( 9 )]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.8106, 0.963907, -5.08522 )
-
-[node name="MeshInstance3" parent="." instance=ExtResource( 7 )]
-
-transform = Transform( 1, 0, 0, 0, 1.85807, 0, 0, 0, 1.832, 54.5941, 4.50048, 3.80639 )
-bounce = 0.75
-
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 
 transform = Transform( 1, 0, 0, 0, -0.756745, 0.65371, 0, -0.65371, -0.756745, 23.2788, 17.7411, -11.5009 )
@@ -388,84 +374,106 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Light", "Shadow" ]
 
-[node name="Ghost" parent="." instance=ExtResource( 10 )]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2703, 2.04614, -1.29035 )
-
 [node name="Env" type="Node" parent="."]
 
-[node name="rock07" parent="Env" instance=ExtResource( 11 )]
+editor/display_folded = true
+
+[node name="rock07" parent="Env" instance=ExtResource( 8 )]
 
 transform = Transform( 0.0165407, -0.0060727, 0.999845, -0.00796137, 0.999949, 0.00620504, -0.999832, -0.00806277, 0.0164916, 37.4392, 0.571782, 13.9794 )
 
-[node name="rock08" parent="Env" instance=ExtResource( 11 )]
+[node name="rock08" parent="Env" instance=ExtResource( 8 )]
 
 transform = Transform( -0.0351616, 0, -0.999382, 0, 1, 0, 0.999382, 0, -0.0351616, 19.3046, 0.571782, 13.9794 )
 
-[node name="rock09" parent="Env" instance=ExtResource( 11 )]
+[node name="rock09" parent="Env" instance=ExtResource( 8 )]
 
 transform = Transform( -0.247307, 0, -0.968937, 0, 1, 0, 0.968937, 0, -0.247307, 27.954, -3.29669, 12.469 )
 
-[node name="rock05" parent="Env" instance=ExtResource( 12 )]
+[node name="rock05" parent="Env" instance=ExtResource( 9 )]
 
 transform = Transform( 0.614734, 0, 0.788734, 0, 1, 0, -0.788734, 0, 0.614734, 67.8842, 1.0766, -10.8189 )
 
-[node name="rock06" parent="Env" instance=ExtResource( 12 )]
+[node name="rock06" parent="Env" instance=ExtResource( 9 )]
 
 transform = Transform( -0.777495, 0, -0.62889, 0, 1, 0, 0.62889, 0, -0.777495, 54.1044, 1.0766, -9.39118 )
 
-[node name="rock04" parent="Env" instance=ExtResource( 13 )]
+[node name="rock04" parent="Env" instance=ExtResource( 10 )]
 
 transform = Transform( 0.614734, 0, 0.788734, 0, 1, 0, -0.788734, 0, 0.614734, 32.0605, -0.160749, -10.0935 )
 
-[node name="rock01" parent="Env" instance=ExtResource( 14 )]
+[node name="rock01" parent="Env" instance=ExtResource( 11 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4716, 1.33045, 12.7467 )
 
-[node name="rock02" parent="Env" instance=ExtResource( 14 )]
+[node name="rock02" parent="Env" instance=ExtResource( 11 )]
 
 transform = Transform( -0.994875, 0, -0.101114, 0, 1, 0, 0.101114, 0, -0.994875, 53.26, 2.34373, 13.2621 )
 
-[node name="rock03" parent="Env" instance=ExtResource( 14 )]
+[node name="rock03" parent="Env" instance=ExtResource( 11 )]
 
 transform = Transform( -0.994875, 0, -0.101114, 0, 1, 0, 0.101114, 0, -0.994875, 90.5991, 2.34373, -12.4774 )
 
-[node name="rock10" parent="Env" instance=ExtResource( 15 )]
+[node name="rock10" parent="Env" instance=ExtResource( 12 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.3569, -0.026206, 9.60367 )
 
-[node name="rock13" parent="Env" instance=ExtResource( 13 )]
+[node name="rock13" parent="Env" instance=ExtResource( 10 )]
 
 transform = Transform( 0.0320643, 0.89433, -0.446256, -0.980164, 0.115505, 0.161053, 0.195579, 0.43224, 0.880294, 39.3773, -3.10059, -12.5812 )
 
-[node name="rock14" parent="Env" instance=ExtResource( 13 )]
+[node name="rock14" parent="Env" instance=ExtResource( 10 )]
 
 transform = Transform( -0.164957, -0.984108, 0.0657244, -0.972168, 0.173473, 0.157472, -0.166371, -0.037919, -0.985334, 23.4391, -3.10059, -12.0996 )
 
-[node name="rock12" parent="Env" instance=ExtResource( 16 )]
+[node name="rock12" parent="Env" instance=ExtResource( 13 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.6424, 0.43118, -9.66566 )
 
-[node name="rock11" parent="Env" instance=ExtResource( 15 )]
+[node name="rock11" parent="Env" instance=ExtResource( 12 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.995, -0.026206, -9.33135 )
 
-[node name="rock15" parent="Env" instance=ExtResource( 17 )]
+[node name="rock15" parent="Env" instance=ExtResource( 14 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04601, -0.567751, 11.4878 )
 
-[node name="rock16" parent="Env" instance=ExtResource( 17 )]
+[node name="rock16" parent="Env" instance=ExtResource( 14 )]
 
 transform = Transform( 0.98731, 0, 0.158806, 0, 1, 0, -0.158806, 0, 0.98731, -1.83464, -0.567751, -10.8434 )
 
-[node name="rock18" parent="Env" instance=ExtResource( 18 )]
+[node name="rock18" parent="Env" instance=ExtResource( 15 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1161, 3.54862, -10.544 )
 
-[node name="rock17" parent="Env" instance=ExtResource( 14 )]
+[node name="rock17" parent="Env" instance=ExtResource( 11 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5083, 5.79867, -21.1955 )
 
-[connection signal="body_entered" from="NoSteer" to="NoSteer" method="_on_SpeedUp_body_entered"]
+[node name="Present" type="Area" parent="." instance=ExtResource( 16 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8633, 1.76459, 0.116052 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+script = ExtResource( 17 )
+force_effect = "ghost"
 
 

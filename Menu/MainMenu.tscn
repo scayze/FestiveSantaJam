@@ -54,6 +54,7 @@ shortcut = null
 group = null
 text = "Start"
 flat = false
+align = 1
 
 [node name="Left" type="Button" parent="."]
 
@@ -76,6 +77,7 @@ shortcut = null
 group = null
 text = "<"
 flat = false
+align = 1
 
 [node name="Right" type="Button" parent="."]
 
@@ -99,6 +101,7 @@ shortcut = null
 group = null
 text = ">"
 flat = false
+align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Exit" type="Button" parent="."]
@@ -122,6 +125,7 @@ shortcut = null
 group = null
 text = "Exit"
 flat = false
+align = 1
 script = ExtResource( 3 )
 
 [node name="LevelSelector" type="Control" parent="."]
@@ -149,6 +153,7 @@ margin_right = 59.0
 margin_bottom = 155.0
 rect_rotation = -0.0558841
 icon = ExtResource( 6 )
+align = 1
 
 [node name="LevelButton2" parent="LevelSelector" instance=ExtResource( 5 )]
 
@@ -157,6 +162,7 @@ margin_top = -1.0
 margin_right = 284.0
 margin_bottom = 155.0
 icon = ExtResource( 6 )
+align = 1
 
 [node name="LevelButton3" parent="LevelSelector" instance=ExtResource( 5 )]
 
@@ -165,6 +171,7 @@ margin_top = 1.0
 margin_right = 507.0
 margin_bottom = 157.0
 icon = ExtResource( 6 )
+align = 1
 
 [node name="LevelButton4" parent="LevelSelector" instance=ExtResource( 5 )]
 
@@ -173,6 +180,7 @@ margin_top = 2.0
 margin_right = 738.0
 margin_bottom = 158.0
 icon = ExtResource( 6 )
+align = 1
 
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
 
