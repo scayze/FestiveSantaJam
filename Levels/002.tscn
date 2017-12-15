@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Vehicle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/StaticCube.tscn" type="PackedScene" id=2]
@@ -10,7 +10,23 @@
 [ext_resource path="res://Tiles/Powerups/SpeedUp.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Tiles/Powerups/NoSteer.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Tiles/Powerups/Ghost.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Tiles/Powerups/Ghost.gd" type="Script" id=11]
+[ext_resource path="res://Tiles/rock02.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Mesh/rock02.tres" type="ArrayMesh" id=12]
+[ext_resource path="res://Tiles/genmesh.gd" type="Script" id=13]
+[ext_resource path="res://Tiles/rock04.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Mesh/rock04.tres" type="ArrayMesh" id=15]
+[ext_resource path="res://Tiles/rock05.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Mesh/rock05.tres" type="ArrayMesh" id=17]
+[ext_resource path="res://Tiles/rock01.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Mesh/rock01.tres" type="ArrayMesh" id=19]
+[ext_resource path="res://Tiles/tree01.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Mesh/tree01.tres" type="ArrayMesh" id=21]
+[ext_resource path="res://Tiles/tree02.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Mesh/tree02.tres" type="ArrayMesh" id=23]
+[ext_resource path="res://Tiles/rock03.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Mesh/rock03.tres" type="ArrayMesh" id=25]
+[ext_resource path="res://Tiles/tree03.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Mesh/tree03.tres" type="ArrayMesh" id=27]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -48,8 +64,8 @@ fog_color = Color( 0.5, 0.6, 0.7, 1 )
 fog_sun_color = Color( 1, 0.9, 0.7, 1 )
 fog_sun_amount = 0.0
 fog_depth_enabled = true
-fog_depth_begin = 10.0
-fog_depth_curve = 0.683022
+fog_depth_begin = 14.0
+fog_depth_curve = 0.901253
 fog_transmit_enabled = false
 fog_transmit_curve = 1.0
 fog_height_enabled = false
@@ -226,12 +242,13 @@ extents = Vector3( 1, 2.67171, 8.18876 )
 
 [node name="002" type="Spatial"]
 
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.328631, -0.54722, -0.476068 )
 _sections_unfolded = [ "Geometry" ]
 
 [node name="Vehicle" parent="." instance=ExtResource( 1 )]
 
 transform = Transform( -3.95826e-008, 0.424252, 0.905544, 1.85446e-008, 0.905544, -0.424252, -1, 0, -4.37114e-008, -3.47646, 5.36473, 0.2984 )
-_sections_unfolded = [ "Mass", "Motion", "Transform" ]
+_sections_unfolded = [ "Collision", "Mass", "Motion", "Transform" ]
 STEER_SPEED = 2.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -351,34 +368,214 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Light", "Shadow" ]
 
-[node name="Ghost" type="Area" parent="." instance=ExtResource( 10 )]
+[node name="Ghost" parent="." instance=ExtResource( 10 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2703, 2.04614, -1.29035 )
-input_ray_pickable = false
-input_capture_on_drag = false
-space_override = 0
-gravity_point = false
-gravity_distance_scale = 0.0
-gravity_vec = Vector3( 0, -1, 0 )
-gravity = 9.8
-linear_damp = 0.1
-angular_damp = 1.0
-priority = 0.0
-monitoring = true
-monitorable = true
-collision_layer = 1
-collision_mask = 1
-audio_bus_override = false
-audio_bus_name = "Master"
-reverb_bus_enable = false
-reverb_bus_name = "Master"
-reverb_bus_amount = 0.0
-reverb_bus_uniformity = 0.0
-script = ExtResource( 11 )
-duration = 5
+
+[node name="Env" type="Node" parent="."]
+
+[node name="rock07" type="MeshInstance" parent="Env" instance=ExtResource( 11 )]
+
+transform = Transform( 0.0165407, -0.0060727, 0.999845, -0.00796137, 0.999949, 0.00620504, -0.999832, -0.00806277, 0.0164916, 37.4392, 0.571782, 13.9794 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 12 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 13 )
+
+[node name="rock08" parent="Env" instance=ExtResource( 11 )]
+
+transform = Transform( -0.0351616, 0, -0.999382, 0, 1, 0, 0.999382, 0, -0.0351616, 19.3046, 0.571782, 13.9794 )
+
+[node name="rock09" parent="Env" instance=ExtResource( 11 )]
+
+transform = Transform( -0.247307, 0, -0.968937, 0, 1, 0, 0.968937, 0, -0.247307, 27.954, -3.29669, 12.469 )
+
+[node name="rock05" type="MeshInstance" parent="Env" instance=ExtResource( 14 )]
+
+transform = Transform( 0.614734, 0, 0.788734, 0, 1, 0, -0.788734, 0, 0.614734, 67.8842, 1.0766, -10.8189 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 15 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 13 )
+
+[node name="rock06" parent="Env" instance=ExtResource( 14 )]
+
+transform = Transform( -0.777495, 0, -0.62889, 0, 1, 0, 0.62889, 0, -0.777495, 54.1044, 1.0766, -9.39118 )
+
+[node name="rock04" type="MeshInstance" parent="Env" instance=ExtResource( 16 )]
+
+transform = Transform( 0.614734, 0, 0.788734, 0, 1, 0, -0.788734, 0, 0.614734, 32.0605, -0.160749, -10.0935 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 17 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 13 )
+
+[node name="rock01" type="MeshInstance" parent="Env" instance=ExtResource( 18 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4716, 1.33045, 12.7467 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 19 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 13 )
+
+[node name="rock02" parent="Env" instance=ExtResource( 18 )]
+
+transform = Transform( -0.994875, 0, -0.101114, 0, 1, 0, 0.101114, 0, -0.994875, 53.26, 2.34373, 13.2621 )
+
+[node name="rock03" parent="Env" instance=ExtResource( 18 )]
+
+transform = Transform( -0.994875, 0, -0.101114, 0, 1, 0, 0.101114, 0, -0.994875, 90.5991, 2.34373, -12.4774 )
+
+[node name="rock10" type="MeshInstance" parent="Env" instance=ExtResource( 20 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.3569, -0.026206, 9.60367 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 21 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 13 )
+
+[node name="rock13" type="MeshInstance" parent="Env" instance=ExtResource( 16 )]
+
+transform = Transform( 0.0320643, 0.89433, -0.446256, -0.980164, 0.115505, 0.161053, 0.195579, 0.43224, 0.880294, 39.3773, -3.10059, -12.5812 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 17 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 13 )
+
+[node name="rock14" parent="Env" instance=ExtResource( 16 )]
+
+transform = Transform( -0.164957, -0.984108, 0.0657244, -0.972168, 0.173473, 0.157472, -0.166371, -0.037919, -0.985334, 23.4391, -3.10059, -12.0996 )
+
+[node name="rock12" type="MeshInstance" parent="Env" instance=ExtResource( 22 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.6424, 0.43118, -9.66566 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 23 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 13 )
+
+[node name="rock11" parent="Env" instance=ExtResource( 20 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.995, -0.026206, -9.33135 )
+
+[node name="rock15" type="MeshInstance" parent="Env" instance=ExtResource( 24 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04601, -0.567751, 11.4878 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 25 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 13 )
+
+[node name="rock16" parent="Env" instance=ExtResource( 24 )]
+
+transform = Transform( 0.98731, 0, 0.158806, 0, 1, 0, -0.158806, 0, 0.98731, -1.83464, -0.567751, -10.8434 )
+
+[node name="rock18" type="MeshInstance" parent="Env" instance=ExtResource( 26 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1161, 3.54862, -10.544 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 27 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 13 )
+
+[node name="rock17" type="MeshInstance" parent="Env" instance=ExtResource( 18 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5083, 5.79867, -21.1955 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 19 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 13 )
 
 [connection signal="body_entered" from="NoSteer" to="NoSteer" method="_on_SpeedUp_body_entered"]
-
-[connection signal="body_entered" from="Ghost" to="Ghost" method="_on_Ghost_body_entered"]
 
 
