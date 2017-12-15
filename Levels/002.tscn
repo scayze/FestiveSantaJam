@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Vehicle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/StaticCube.tscn" type="PackedScene" id=2]
@@ -11,22 +11,27 @@
 [ext_resource path="res://Tiles/Powerups/NoSteer.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Tiles/Powerups/Ghost.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Tiles/rock02.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Mesh/rock02.tres" type="ArrayMesh" id=12]
-[ext_resource path="res://Tiles/genmesh.gd" type="Script" id=13]
-[ext_resource path="res://Tiles/rock04.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Mesh/rock04.tres" type="ArrayMesh" id=15]
-[ext_resource path="res://Tiles/rock05.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Mesh/rock05.tres" type="ArrayMesh" id=17]
-[ext_resource path="res://Tiles/rock01.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Mesh/rock01.tres" type="ArrayMesh" id=19]
-[ext_resource path="res://Tiles/tree01.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Mesh/tree01.tres" type="ArrayMesh" id=21]
-[ext_resource path="res://Tiles/tree02.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Mesh/tree02.tres" type="ArrayMesh" id=23]
-[ext_resource path="res://Tiles/rock03.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Mesh/rock03.tres" type="ArrayMesh" id=25]
-[ext_resource path="res://Tiles/tree03.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Mesh/tree03.tres" type="ArrayMesh" id=27]
+[ext_resource path="res://Tiles/rock04.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Tiles/rock05.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Tiles/rock01.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Tiles/tree01.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Tiles/tree02.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Tiles/rock03.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Tiles/tree03.tscn" type="PackedScene" id=18]
+
+[sub_resource type="GIProbeData" id=7]
+
+bounds = AABB( -66.3568, -20.8457, -28.9187, 132.714, 41.6913, 57.8375 )
+cell_size = 0.518413
+to_cell_xform = Transform( 1.92896, 0, 0, 0, 1.92896, 0, 0, 0, 1.92896, 128, 40.2105, 55.7832 )
+dynamic_data = PoolIntArray( 0, 9, 256, 128, 128, 1, 0, 0, 0, 1098907648, 1098907648, 0, 701058960, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+dynamic_range = 4
+energy = 1.0
+bias = 1.5
+normal_bias = 0.0
+propagation = 1.0
+interior = false
+compress = false
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -54,12 +59,12 @@ background_mode = 2
 background_sky = SubResource( 1 )
 background_sky_custom_fov = 0.0
 background_color = Color( 0, 0, 0, 1 )
-background_energy = 1.0
+background_energy = 0.5
 background_canvas_max_layer = 0
 ambient_light_color = Color( 0, 0, 0, 1 )
-ambient_light_energy = 1.0
-ambient_light_sky_contribution = 1.0
-fog_enabled = true
+ambient_light_energy = 0.2
+ambient_light_sky_contribution = 0.7
+fog_enabled = false
 fog_color = Color( 0.5, 0.6, 0.7, 1 )
 fog_sun_color = Color( 1, 0.9, 0.7, 1 )
 fog_sun_amount = 0.0
@@ -80,7 +85,7 @@ auto_exposure_scale = 0.4
 auto_exposure_min_luma = 0.05
 auto_exposure_max_luma = 8.0
 auto_exposure_speed = 0.5
-ss_reflections_enabled = false
+ss_reflections_enabled = true
 ss_reflections_max_steps = 64
 ss_reflections_fade_in = 0.15
 ss_reflections_fade_out = 2.0
@@ -126,7 +131,7 @@ adjustment_enabled = false
 adjustment_brightness = 1.0
 adjustment_contrast = 1.0
 adjustment_saturation = 1.0
-_sections_unfolded = [ "Background", "Fog" ]
+_sections_unfolded = [ "Ambient Light", "Background", "Fog", "SS Reflections" ]
 
 [sub_resource type="SpatialMaterial" id=3]
 
@@ -245,6 +250,21 @@ extents = Vector3( 1, 2.67171, 8.18876 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.328631, -0.54722, -0.476068 )
 _sections_unfolded = [ "Geometry" ]
 
+[node name="GIProbe" type="GIProbe" parent="."]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1666, 4.09584, -1.10835 )
+layers = 1
+subdiv = 2
+extents = Vector3( 66.3568, 20.8457, 28.9187 )
+dynamic_range = 4
+energy = 1.0
+propagation = 1.0
+bias = 1.5
+normal_bias = 0.0
+interior = false
+compress = false
+data = SubResource( 7 )
+
 [node name="Vehicle" parent="." instance=ExtResource( 1 )]
 
 transform = Transform( -3.95826e-008, 0.424252, 0.905544, 1.85446e-008, 0.905544, -0.424252, -1, 0, -4.37114e-008, -3.47646, 5.36473, 0.2984 )
@@ -343,7 +363,7 @@ bounce = 0.75
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 
-transform = Transform( 1, 0, 0, 0, -0.193218, 0.981156, 0, -0.981156, -0.193218, 23.2788, 23.1186, -15.4509 )
+transform = Transform( 1, 0, 0, 0, -0.756745, 0.65371, 0, -0.65371, -0.756745, 23.2788, 17.7411, -11.5009 )
 layers = 1
 light_color = Color( 1, 1, 1, 1 )
 light_energy = 1.0
@@ -374,22 +394,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2703, 2.04614, -1.29035 )
 
 [node name="Env" type="Node" parent="."]
 
-[node name="rock07" type="MeshInstance" parent="Env" instance=ExtResource( 11 )]
+[node name="rock07" parent="Env" instance=ExtResource( 11 )]
 
 transform = Transform( 0.0165407, -0.0060727, 0.999845, -0.00796137, 0.999949, 0.00620504, -0.999832, -0.00806277, 0.0164916, 37.4392, 0.571782, 13.9794 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 12 )
-skeleton = NodePath("..")
-material/0 = null
-script = ExtResource( 13 )
 
 [node name="rock08" parent="Env" instance=ExtResource( 11 )]
 
@@ -399,182 +406,65 @@ transform = Transform( -0.0351616, 0, -0.999382, 0, 1, 0, 0.999382, 0, -0.035161
 
 transform = Transform( -0.247307, 0, -0.968937, 0, 1, 0, 0.968937, 0, -0.247307, 27.954, -3.29669, 12.469 )
 
-[node name="rock05" type="MeshInstance" parent="Env" instance=ExtResource( 14 )]
+[node name="rock05" parent="Env" instance=ExtResource( 12 )]
 
 transform = Transform( 0.614734, 0, 0.788734, 0, 1, 0, -0.788734, 0, 0.614734, 67.8842, 1.0766, -10.8189 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 15 )
-skeleton = NodePath("..")
-material/0 = null
-script = ExtResource( 13 )
 
-[node name="rock06" parent="Env" instance=ExtResource( 14 )]
+[node name="rock06" parent="Env" instance=ExtResource( 12 )]
 
 transform = Transform( -0.777495, 0, -0.62889, 0, 1, 0, 0.62889, 0, -0.777495, 54.1044, 1.0766, -9.39118 )
 
-[node name="rock04" type="MeshInstance" parent="Env" instance=ExtResource( 16 )]
+[node name="rock04" parent="Env" instance=ExtResource( 13 )]
 
 transform = Transform( 0.614734, 0, 0.788734, 0, 1, 0, -0.788734, 0, 0.614734, 32.0605, -0.160749, -10.0935 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 17 )
-skeleton = NodePath("..")
-material/0 = null
-script = ExtResource( 13 )
 
-[node name="rock01" type="MeshInstance" parent="Env" instance=ExtResource( 18 )]
+[node name="rock01" parent="Env" instance=ExtResource( 14 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4716, 1.33045, 12.7467 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 19 )
-skeleton = NodePath("..")
-material/0 = null
-script = ExtResource( 13 )
 
-[node name="rock02" parent="Env" instance=ExtResource( 18 )]
+[node name="rock02" parent="Env" instance=ExtResource( 14 )]
 
 transform = Transform( -0.994875, 0, -0.101114, 0, 1, 0, 0.101114, 0, -0.994875, 53.26, 2.34373, 13.2621 )
 
-[node name="rock03" parent="Env" instance=ExtResource( 18 )]
+[node name="rock03" parent="Env" instance=ExtResource( 14 )]
 
 transform = Transform( -0.994875, 0, -0.101114, 0, 1, 0, 0.101114, 0, -0.994875, 90.5991, 2.34373, -12.4774 )
 
-[node name="rock10" type="MeshInstance" parent="Env" instance=ExtResource( 20 )]
+[node name="rock10" parent="Env" instance=ExtResource( 15 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.3569, -0.026206, 9.60367 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 21 )
-skeleton = NodePath("..")
-material/0 = null
-script = ExtResource( 13 )
 
-[node name="rock13" type="MeshInstance" parent="Env" instance=ExtResource( 16 )]
+[node name="rock13" parent="Env" instance=ExtResource( 13 )]
 
 transform = Transform( 0.0320643, 0.89433, -0.446256, -0.980164, 0.115505, 0.161053, 0.195579, 0.43224, 0.880294, 39.3773, -3.10059, -12.5812 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 17 )
-skeleton = NodePath("..")
-material/0 = null
-script = ExtResource( 13 )
 
-[node name="rock14" parent="Env" instance=ExtResource( 16 )]
+[node name="rock14" parent="Env" instance=ExtResource( 13 )]
 
 transform = Transform( -0.164957, -0.984108, 0.0657244, -0.972168, 0.173473, 0.157472, -0.166371, -0.037919, -0.985334, 23.4391, -3.10059, -12.0996 )
 
-[node name="rock12" type="MeshInstance" parent="Env" instance=ExtResource( 22 )]
+[node name="rock12" parent="Env" instance=ExtResource( 16 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.6424, 0.43118, -9.66566 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 23 )
-skeleton = NodePath("..")
-material/0 = null
-script = ExtResource( 13 )
 
-[node name="rock11" parent="Env" instance=ExtResource( 20 )]
+[node name="rock11" parent="Env" instance=ExtResource( 15 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.995, -0.026206, -9.33135 )
 
-[node name="rock15" type="MeshInstance" parent="Env" instance=ExtResource( 24 )]
+[node name="rock15" parent="Env" instance=ExtResource( 17 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04601, -0.567751, 11.4878 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 25 )
-skeleton = NodePath("..")
-material/0 = null
-script = ExtResource( 13 )
 
-[node name="rock16" parent="Env" instance=ExtResource( 24 )]
+[node name="rock16" parent="Env" instance=ExtResource( 17 )]
 
 transform = Transform( 0.98731, 0, 0.158806, 0, 1, 0, -0.158806, 0, 0.98731, -1.83464, -0.567751, -10.8434 )
 
-[node name="rock18" type="MeshInstance" parent="Env" instance=ExtResource( 26 )]
+[node name="rock18" parent="Env" instance=ExtResource( 18 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1161, 3.54862, -10.544 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 27 )
-skeleton = NodePath("..")
-material/0 = null
-script = ExtResource( 13 )
 
-[node name="rock17" type="MeshInstance" parent="Env" instance=ExtResource( 18 )]
+[node name="rock17" parent="Env" instance=ExtResource( 14 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5083, 5.79867, -21.1955 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = ExtResource( 19 )
-skeleton = NodePath("..")
-material/0 = null
-script = ExtResource( 13 )
 
 [connection signal="body_entered" from="NoSteer" to="NoSteer" method="_on_SpeedUp_body_entered"]
 
