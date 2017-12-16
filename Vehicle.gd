@@ -27,6 +27,8 @@ func power_up(name,duration,value):
 
 func _process(delta):
 	steer_timer -= delta
+	#rotation.x = clamp(rotation.x,-PI/4,PI/4)
+	#rotation.z = clamp(rotation.z,-PI/4,PI/4)
 
 func _physics_process(delta):
 	friction += delta

@@ -13,6 +13,7 @@ func _ready():
 
 func spawn():
 	visible = true
+	anim.play("Spawn")
 
 
 func _on_Snowman_body_entered( body ):
