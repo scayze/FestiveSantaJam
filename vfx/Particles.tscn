@@ -54,11 +54,11 @@ flags_fixed_size = false
 flags_albedo_tex_force_srgb = false
 vertex_color_use_as_albedo = false
 vertex_color_is_srgb = false
-params_diffuse_mode = 3
+params_diffuse_mode = 0
 params_specular_mode = 0
 params_blend_mode = 0
 params_cull_mode = 0
-params_depth_draw_mode = 3
+params_depth_draw_mode = 0
 params_line_width = 1.0
 params_point_size = 1.0
 params_billboard_mode = 2
@@ -93,9 +93,10 @@ uv2_scale = Vector3( 1, 1, 1 )
 uv2_offset = Vector3( 0, 0, 0 )
 uv2_triplanar = false
 uv2_triplanar_sharpness = 1.0
-proximity_fade_enable = false
+proximity_fade_enable = true
+proximity_fade_distance = 0.1
 distance_fade_enable = false
-_sections_unfolded = [ "Depth", "Distance Fade", "Flags", "Metallic", "Parameters", "Roughness", "Subsurf Scatter", "Transmission" ]
+_sections_unfolded = [ "Depth", "Distance Fade", "Flags", "Metallic", "Parameters", "Proximity Fade", "Roughness", "Subsurf Scatter", "Transmission" ]
 
 [sub_resource type="QuadMesh" id=3]
 
@@ -124,7 +125,7 @@ explosiveness = 0.0
 randomness = 0.0
 fixed_fps = 0
 fract_delta = true
-visibility_aabb = AABB( -16, -20, -16, 32, 40, 32 )
+visibility_aabb = AABB( -16, -27.6835, -50.7295, 32, 55.367, 101.459 )
 local_coords = true
 draw_order = 0
 process_material = SubResource( 1 )

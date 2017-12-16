@@ -15,6 +15,9 @@ func _ready():
 	friction = 0.1
 	if has_method("set_linear_velocity"): set_linear_velocity(Vector3(1,0,0))
 
+	get_node("MeshInstance").material_override.flags_transparent = false
+	get_node("MeshInstance").material_override.albedo_color = Color(1,1,1,1)
+
 func power_up(name,duration,value):
 	if name == "speed":
 		if has_method("set_linear_velocity"): set_linear_velocity(get_linear_velocity() + get_linear_velocity().normalized()*value)
