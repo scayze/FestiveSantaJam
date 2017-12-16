@@ -45,7 +45,7 @@ func _process(delta):
 
 func play_update(delta):
 	camera.translation = vehicle.translation - Vector3(8,-9,0)
-	camera.translation.z = 0
+	camera.translation.z = vehicle.translation.z
 	snow_update()
 	
 	if Input.is_action_just_pressed("restart"): restart()
@@ -57,7 +57,7 @@ func play_update(delta):
 func play(path):
 	state = PLAY
 	finish_menu.hide()
-	timer.text = "0.0"
+	timer.time_passed = 0.0
 	timer.show()
 	spawn_level(path)
 

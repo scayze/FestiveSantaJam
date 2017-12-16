@@ -1,8 +1,6 @@
 extends Label
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var time_passed = 0.0
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -10,4 +8,5 @@ func _ready():
 	pass
 
 func _process(delta):
-	text = str(float(text) + delta).pad_decimals(2)
+	time_passed+=delta
+	text = str(time_passed).pad_decimals(2)
