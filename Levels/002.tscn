@@ -645,6 +645,44 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2983, 0.757522, 5.10123 )
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2983, 0.757522, 8.41176 )
 
+[node name="Area2" parent="." instance=ExtResource( 4 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 173.417, 1.84589, 14.372 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area2"]
+
+shape = SubResource( 5 )
+disabled = false
+
+[node name="Snowman" parent="Area2" instance=ExtResource( 5 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.328, 0.529512, -2.89397 )
+
+[node name="Snowman2" parent="Area2" instance=ExtResource( 5 )]
+
+transform = Transform( 0.673746, 0, 0.738963, 0, 1, 0, -0.738963, 0, 0.673746, 35.031, 5.75769, -7.99823 )
+
+[node name="Snowman3" parent="Area2" instance=ExtResource( 5 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3422, 0.766055, 3.10903 )
+
+[node name="SnowBallTrap" parent="Area2" instance=ExtResource( 6 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52.5591, 2.19466, -4.60338 )
+mode = 0
+
+[node name="SnowBallTrap2" parent="Area2" instance=ExtResource( 6 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.5372, 0.987199, -3.12308 )
+
+[node name="SnowBallTrap3" parent="Area2" instance=ExtResource( 6 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2983, 1.479, 1.34487 )
+
+[node name="SnowBallTrap4" parent="Area2" instance=ExtResource( 6 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 68.934, 0.757522, -3.74087 )
+
 [node name="FinishTrigger" parent="." instance=ExtResource( 7 )]
 
 editor/display_folded = true
@@ -663,7 +701,7 @@ gravity_scale = 0.75
 
 [node name="MeshInstance3" parent="." instance=ExtResource( 8 )]
 
-transform = Transform( 0.918439, 0, -0.395562, 0, 1, 0, 0.395562, 0, 0.918439, 133.468, 4.12729, 15.5982 )
+transform = Transform( 0.918439, 0, -0.395562, 0, 1, 0, 0.395562, 0, 0.918439, 133.468, 3.46556, 15.5982 )
 gravity_scale = 0.75
 
 [node name="MeshInstance11" parent="." instance=ExtResource( 8 )]
@@ -895,7 +933,7 @@ transform = Transform( -0.602147, -0.29823, -0.740593, 0, 0.927613, -0.373542, 0
 
 [node name="rock52" parent="Env" instance=ExtResource( 14 )]
 
-transform = Transform( -0.617626, 0.186423, -0.764059, -0.749138, 0.156319, 0.643705, 0.239439, 0.969954, 0.0431098, 109.501, 2.00377, -1.92216 )
+transform = Transform( -0.61592, 0.048919, -0.786289, -0.78764, -0.0176094, 0.615883, 0.0162822, 0.998647, 0.0493762, 110.114, 2.30409, -2.67607 )
 
 [node name="rock38" parent="Env" instance=ExtResource( 14 )]
 

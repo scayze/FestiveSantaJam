@@ -2,16 +2,12 @@ extends Control
 
 export(String,FILE) var level = "res://Levels/002.tscn"
 
+var time = "Not Finished"
+onready var l_time = get_node("Time")
+
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
+	update()
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
-
-func _on_LevelButton_pressed():
-	get_parent().select_level(self)
+func update():
+	l_time.text = "Time: " + time

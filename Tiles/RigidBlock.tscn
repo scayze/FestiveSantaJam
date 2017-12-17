@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Tiles/RigidBlock.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/RigidBlock.gd" type="Script" id=1]
 [ext_resource path="res://Mesh/mat_crate.tres" type="Material" id=2]
 [ext_resource path="res://Mesh/Crate.tres" type="ArrayMesh" id=3]
 
@@ -15,7 +15,7 @@ input_capture_on_drag = false
 collision_layer = 2
 collision_mask = 3
 mode = 0
-mass = 5.0
+mass = 10.0
 friction = 0.3
 bounce = 0.5
 gravity_scale = 1.0
