@@ -1,6 +1,5 @@
 extends Node
 
-var scene_snow = preload("res://vfx/Particles.tscn")
 onready var main_menu = get_node("Menu")
 onready var finish_menu = get_node("FinishMenu")
 onready var pause_menu = get_node("PauseMenu")
@@ -10,7 +9,6 @@ onready var camera = get_node("Camera")
 var vehicle
 var current_level
 var current_path
-var snow_parts = []
 var levels = []
 
 enum game_states {
@@ -23,7 +21,6 @@ var state = MENU
 
 func _ready():
 	load_levels()
-	spawn_snow()
 
 func restart():
 	play(current_path)
@@ -44,9 +41,16 @@ func _process(delta):
 
 
 func play_update(delta):
-	camera.translation = vehicle.translation - Vector3(8,-9,0)
-	camera.translation.z = vehicle.translation.z
-	snow_update()
+	var cam_rot = (camera.rotation.y-vehicle.rotation.y)
+	var cam_goal = vehicle.translation - Vector3(8,-9,0).rotated(Vector3(0,1,0),vehicle.rotation.y - PI/2)
+	var vec = (cam_goal-camera.translation)/5.0
+	if vec.length() > 1.0/5.0:
+		camera.translation += (cam_goal-camera.translation).normalized()/5.0
+	else:
+		camera.translation += (cam_goal-camera.translation)
+	camera.translation = cam_goal
+	#camera.translation.z = vehicle.translation.z
+	camera.look_at(vehicle.translation + Vector3(0,5,0),Vector3(0,1,0))
 	
 	if Input.is_action_just_pressed("restart"): restart()
 	if Input.is_action_just_pressed("pause"):
@@ -76,20 +80,6 @@ func back():
 		current_level = null
 	finish_menu.hide()
 	main_menu.reset()
-
-func spawn_snow():
-	for x in range(8):
-		var snow = scene_snow.instance()
-		snow.translation = Vector3(16+x*32,30,0)
-		snow_parts.append(snow)
-		add_child(snow)
-
-func snow_update():
-	for part in snow_parts:
-		if (part.translation - vehicle.translation).length() < 120:
-			part.visible = true
-		else:
-			part.visible = false
 
 func load_levels():
 	var dir = Directory.new()

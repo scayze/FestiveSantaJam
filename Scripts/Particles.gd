@@ -1,6 +1,9 @@
 extends Particles
 
-func _ready():
-	pass
+var player
 
-	pass
+func _ready():
+	player = get_tree().get_root().get_node("World").vehicle
+
+func _process(delta):
+	visible = (translation-player.translation).length() < 120

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Vehicle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/StaticCube.tscn" type="PackedScene" id=2]
@@ -18,6 +18,9 @@
 [ext_resource path="res://Tiles/tree03.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Tiles/Present.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Tiles/Road.tscn" type="PackedScene" id=18]
+[ext_resource path="res://vfx/Particles.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Data/Textures/snowflake.png" type="Texture" id=20]
+[ext_resource path="res://Scripts/Particles.gd" type="Script" id=21]
 
 [sub_resource type="GIProbeData" id=1]
 
@@ -558,6 +561,106 @@ uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
 
+[sub_resource type="ParticlesMaterial" id=14]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 16, 0, 56 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = false
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, -9.8, 0 )
+initial_velocity = 0.01
+initial_velocity_random = 0.0
+angular_velocity = 14.99
+angular_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 9.0
+damping_random = 0.0
+angle = 45.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 1.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Damping", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Orbit Velocity", "Scale", "Spread", "Trail" ]
+
+[sub_resource type="SpatialMaterial" id=15]
+
+render_priority = 0
+flags_transparent = true
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 2
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 20 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = true
+emission = Color( 0.75, 0.75, 0.75, 1 )
+emission_energy = 1.0
+emission_operator = 0
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = true
+proximity_fade_distance = 0.1
+distance_fade_enable = false
+_sections_unfolded = [ "Depth", "Distance Fade", "Flags", "Metallic", "Parameters", "Proximity Fade", "Roughness", "Subsurf Scatter", "Transmission" ]
+
+[sub_resource type="QuadMesh" id=16]
+
+material = SubResource( 15 )
+size = Vector2( 0.69, 0.69 )
+
 [node name="002" type="Spatial"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.328631, -0.54722, -0.476068 )
@@ -1036,5 +1139,80 @@ material_override = SubResource( 12 )
 
 transform = Transform( 0.120571, 0.0044725, 4.4346, 0.0209628, -0.999937, 0.0170705, 1.98816, 0.0102719, -0.269115, 208.984, 1.77117, 12.46 )
 material_override = SubResource( 13 )
+
+[node name="Particles" type="Particles" parent="." instance=ExtResource( 19 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.7177, 28.6217, 19.4936 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 256
+lifetime = 9.0
+one_shot = false
+preprocess = 12.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -16, -27.6835, -50.7295, 32, 55.367, 101.459 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 14 )
+draw_passes = 1
+draw_pass_1 = SubResource( 16 )
+script = ExtResource( 21 )
+_sections_unfolded = [ "Draw Passes", "Process Material", "Time", "Transform" ]
+
+[node name="Particles2" parent="." instance=ExtResource( 19 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3481, 28.6217, 19.4936 )
+
+[node name="Particles3" parent="." instance=ExtResource( 19 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93886, 28.6217, 19.4936 )
+
+[node name="Particles4" parent="." instance=ExtResource( 19 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.68373, 28.6217, 19.4936 )
+
+[node name="Particles5" parent="." instance=ExtResource( 19 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 67.1584, 28.6217, 19.4936 )
+
+[node name="Particles6" parent="." instance=ExtResource( 19 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 93.9044, 28.6217, 19.4936 )
+
+[node name="Particles7" parent="." instance=ExtResource( 19 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.695, 28.6217, 19.4936 )
+
+[node name="Particles8" parent="." instance=ExtResource( 19 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 146.829, 28.6217, 19.4936 )
+
+[node name="Particles9" parent="." instance=ExtResource( 19 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 174.688, 28.6217, 19.4936 )
+
+[node name="Particles10" parent="." instance=ExtResource( 19 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 202.14, 28.6217, 19.4936 )
+
+[node name="Particles11" parent="." instance=ExtResource( 19 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 232.764, 28.6217, 19.4936 )
+
+[node name="Particles12" parent="." instance=ExtResource( 19 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 264.307, 28.6217, 19.4936 )
 
 

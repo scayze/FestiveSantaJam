@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Menu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Data/Textures/mainmenu.png" type="Texture" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://Menu/Exit.gd" type="Script" id=4]
 [ext_resource path="res://Menu/HSplitContainer.gd" type="Script" id=5]
 [ext_resource path="res://Menu/LevelButton.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Data/Textures/groundtexture.png" type="Texture" id=7]
-[ext_resource path="res://Data/Textures/snowflake.png" type="Texture" id=8]
+[ext_resource path="res://Data/Textures/000.png" type="Texture" id=7]
+[ext_resource path="res://Data/Textures/groundtexture.png" type="Texture" id=8]
+[ext_resource path="res://Data/Textures/snowflake.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -50,12 +51,11 @@ rect_scale = Vector2( 0.56, 0.56 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
-size_flags_horizontal = 2
-size_flags_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource( 2 )
 expand = true
-stretch_mode = 0
-_sections_unfolded = [ "Size Flags" ]
+_sections_unfolded = [ "Margin", "Size Flags" ]
 
 [node name="Play" type="Button" parent="."]
 
@@ -155,27 +155,30 @@ script = ExtResource( 5 )
 margin_left = -150.0
 margin_right = 1219.0
 rect_rotation = -0.0558841
+name = "Scary Snowman"
 
 [node name="LevelButton2" parent="LevelSelector" instance=ExtResource( 6 )]
 
 margin_left = -150.0
 margin_right = 62.0
 margin_bottom = 156.0
+texture = ExtResource( 7 )
+name = "Dominion"
+level = "res://Levels/000.tscn"
 
 [node name="LevelButton3" parent="LevelSelector" instance=ExtResource( 6 )]
 
-editor/display_folded = true
 margin_left = -150.0
 margin_right = 62.0
 margin_bottom = 156.0
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="LevelButton4" parent="LevelSelector" instance=ExtResource( 6 )]
 
 margin_left = -150.0
 margin_right = 1209.0
 margin_bottom = 670.0
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
 
@@ -184,4 +187,3 @@ texture = ExtResource( 8 )
 [connection signal="pressed" from="Exit" to="Exit" method="_on_Exit_pressed"]
 
 
-[editable path="LevelSelector/LevelButton3"]

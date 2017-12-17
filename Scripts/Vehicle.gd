@@ -31,7 +31,7 @@ func _process(delta):
 	#rotation.z = clamp(rotation.z,-PI/4,PI/4)
 
 func _physics_process(delta):
-	print(get_linear_velocity())
+	#print(get_linear_velocity())
 	friction += delta
 	clamp(friction,0,1)
 	

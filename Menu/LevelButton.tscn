@@ -30,6 +30,7 @@ texture = ExtResource( 1 )
 stretch_mode = 0
 script = ExtResource( 2 )
 _sections_unfolded = [ "Rect" ]
+name = "Name"
 level = "res://Levels/002.tscn"
 
 [node name="Time" type="Label" parent="."]
@@ -38,10 +39,32 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 1524.0
-margin_top = 20.0
-margin_right = 1815.0
-margin_bottom = 100.0
+margin_left = 1578.0
+margin_top = 121.0
+margin_right = 1869.0
+margin_bottom = 201.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Time: 1337"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Name" type="Label" parent="."]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1539.0
+margin_top = 47.0
+margin_right = 1830.0
+margin_bottom = 127.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
