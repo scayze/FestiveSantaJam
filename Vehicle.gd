@@ -31,6 +31,7 @@ func _process(delta):
 	#rotation.z = clamp(rotation.z,-PI/4,PI/4)
 
 func _physics_process(delta):
+	print(get_linear_velocity())
 	friction += delta
 	clamp(friction,0,1)
 	
@@ -45,7 +46,9 @@ func _physics_process(delta):
 	
 	#print(str(engine_force) + " " + str(get_linear_velocity().length()))
 	
-	if Input.is_key_pressed(KEY_S): brake = 1.0
+	if Input.is_key_pressed(KEY_S):
+		brake = 1.0
+		engine_force = -force * 5
 	else:                           brake = 0.0
 	
 	if Input.is_key_pressed(KEY_A):   steer_target = -STEER_LIMIT

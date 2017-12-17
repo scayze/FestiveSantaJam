@@ -7,12 +7,17 @@ var duration = 0
 var hit = false
 var player
 
+onready var anim = get_node("AnimationPlayer")
+
+var timer = 0.0
+
 func _ready():
 	pass
 
 
 func _process(delta):
 	if hit:
+		timer += delta
 		duration -= delta
 		if duration <= 0.0:
 			end_effect()
@@ -28,7 +33,8 @@ func end_effect():
 func _on_body_entered( body ):
 	if body.is_in_group("player") and not hit:
 		hit = true
-		visible = false
+		#visible = false
+		#anim.play("Open")
 		player = body
 		randomize()
 		current_effect = effects[rand_range(0,effects.size())]

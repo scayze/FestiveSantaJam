@@ -190,7 +190,7 @@ disabled = false
 
 [node name="Mesh" type="MeshInstance" parent="."]
 
-transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0 )
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -217,7 +217,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-emitting = false
+emitting = true
 amount = 16
 lifetime = 1.0
 one_shot = true
@@ -240,16 +240,16 @@ _sections_unfolded = [ "Draw Passes", "Drawing", "Process Material", "Time", "Tr
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 root_node = NodePath("../Mesh")
-autoplay = "null"
+autoplay = ""
 speed_scale = 1.0
 active = true
-current_animation = "Spawn"
+current_animation = "Break"
 anims/Break = SubResource( 5 )
 anims/Spawn = SubResource( 6 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
-autoplay = "null"
+autoplay = ""
 
 [connection signal="body_entered" from="." to="." method="_on_Snowman_body_entered"]
 

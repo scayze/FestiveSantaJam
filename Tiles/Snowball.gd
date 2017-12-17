@@ -1,7 +1,7 @@
 extends RigidBody
 
-var hit = false
 onready var anim = get_node("AnimationPlayer")
+onready var shape = get_node("CollisionShape")
 onready var vel = linear_velocity
 onready var ang = angular_velocity
 
@@ -15,8 +15,10 @@ func spawn():
 	linear_velocity = vel
 	anim.play("Spawn")
 
-func _on_Snowball_body_entered( body ):
+func _on_col( body ):
 	if body.is_in_group("player"):
-		collision_layer = 0
-		hit = true
-		anim.play("Break")
+		print("lol")
+		if body.has_method("set_linear_velocity"):
+			if body.get_linear_velocity().length() > 13:
+				shape.disabled = true
+				anim.play("Break")

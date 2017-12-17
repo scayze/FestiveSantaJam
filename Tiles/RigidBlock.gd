@@ -7,8 +7,6 @@ onready var mesh = get_node("MeshInstance")
 onready var shape = get_node("CollisionShape")
 
 func _ready():
-	shape.shape = BoxShape.new()
-	shape.shape.extents = scale * 2
 	mesh.scale = scale
 	mesh.material_override = mesh.material_override.duplicate()#scale
 

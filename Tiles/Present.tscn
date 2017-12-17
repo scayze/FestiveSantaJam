@@ -30,7 +30,7 @@ reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform", "Visibility" ]
 force_effect = ""
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -41,7 +41,6 @@ disabled = false
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 
-transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1

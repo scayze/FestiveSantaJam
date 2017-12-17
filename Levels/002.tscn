@@ -5,7 +5,7 @@
 [ext_resource path="res://Data/Textures/groundtexture.png" type="Texture" id=3]
 [ext_resource path="res://Tiles/SpawnTrigger.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tiles/Snowman.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Tiles/Snowball.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Tiles/SnowBallTrap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Tiles/FinishTrigger.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Tiles/RigidBlock.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Tiles/rock02.tscn" type="PackedScene" id=9]
@@ -19,7 +19,7 @@
 [ext_resource path="res://Tiles/Present.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Tiles/Road.tscn" type="PackedScene" id=18]
 
-[sub_resource type="GIProbeData" id=10]
+[sub_resource type="GIProbeData" id=1]
 
 bounds = AABB( -196.504, -20.8457, -39.9688, 393.008, 41.6914, 79.9375 )
 cell_size = 1.53519
@@ -33,7 +33,7 @@ propagation = 1.0
 interior = false
 compress = false
 
-[sub_resource type="ProceduralSky" id=11]
+[sub_resource type="ProceduralSky" id=2]
 
 radiance_size = 4
 sky_top_color = Color( 0, 0.438818, 1, 1 )
@@ -54,10 +54,10 @@ sun_energy = 16.0
 texture_size = 2
 _sections_unfolded = [ "Ground", "Sky" ]
 
-[sub_resource type="Environment" id=12]
+[sub_resource type="Environment" id=3]
 
 background_mode = 2
-background_sky = SubResource( 11 )
+background_sky = SubResource( 2 )
 background_sky_custom_fov = 0.0
 background_color = Color( 0, 0, 0, 1 )
 background_energy = 0.5
@@ -134,7 +134,7 @@ adjustment_contrast = 1.0
 adjustment_saturation = 1.0
 _sections_unfolded = [ "Background", "Fog" ]
 
-[sub_resource type="SpatialMaterial" id=13]
+[sub_resource type="SpatialMaterial" id=4]
 
 render_priority = 0
 flags_transparent = false
@@ -186,15 +186,15 @@ uv2_triplanar_sharpness = 17.1484
 proximity_fade_enable = false
 distance_fade_enable = false
 
-[sub_resource type="BoxShape" id=14]
+[sub_resource type="BoxShape" id=5]
 
 extents = Vector3( 5.51807, 4.12476, 9.20121 )
 
-[sub_resource type="BoxShape" id=15]
+[sub_resource type="BoxShape" id=6]
 
 extents = Vector3( 1, 2.67171, 8.18876 )
 
-[sub_resource type="SpatialMaterial" id=16]
+[sub_resource type="SpatialMaterial" id=7]
 
 render_priority = 0
 flags_transparent = false
@@ -246,7 +246,7 @@ uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
 
-[sub_resource type="SpatialMaterial" id=17]
+[sub_resource type="SpatialMaterial" id=8]
 
 render_priority = 0
 flags_transparent = false
@@ -298,59 +298,7 @@ uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
 
-[sub_resource type="SpatialMaterial" id=18]
-
-render_priority = 0
-flags_transparent = false
-flags_unshaded = true
-flags_vertex_lighting = false
-flags_no_depth_test = false
-flags_use_point_size = false
-flags_world_triplanar = false
-flags_fixed_size = false
-flags_albedo_tex_force_srgb = false
-vertex_color_use_as_albedo = false
-vertex_color_is_srgb = false
-params_diffuse_mode = 1
-params_specular_mode = 0
-params_blend_mode = 0
-params_cull_mode = 0
-params_depth_draw_mode = 0
-params_line_width = 1.0
-params_point_size = 1.0
-params_billboard_mode = 0
-params_grow = false
-params_use_alpha_scissor = false
-albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 3 )
-metallic = 0.0
-metallic_specular = 0.5
-metallic_texture_channel = 0
-roughness = 1.0
-roughness_texture_channel = 0
-emission_enabled = false
-normal_enabled = false
-rim_enabled = false
-clearcoat_enabled = false
-anisotropy_enabled = false
-ao_enabled = false
-depth_enabled = false
-subsurf_scatter_enabled = false
-transmission_enabled = false
-refraction_enabled = false
-detail_enabled = false
-uv1_scale = Vector3( 0.125, 0.125, 0.555349 )
-uv1_offset = Vector3( 0.5, 0.5, 0.5 )
-uv1_triplanar = true
-uv1_triplanar_sharpness = 1.0
-uv2_scale = Vector3( 1, 1, 1 )
-uv2_offset = Vector3( 0, 0, 0 )
-uv2_triplanar = false
-uv2_triplanar_sharpness = 1.0
-proximity_fade_enable = false
-distance_fade_enable = false
-
-[sub_resource type="SpatialMaterial" id=19]
+[sub_resource type="SpatialMaterial" id=9]
 
 render_priority = 0
 flags_transparent = false
@@ -402,59 +350,7 @@ uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
 
-[sub_resource type="SpatialMaterial" id=20]
-
-render_priority = 0
-flags_transparent = false
-flags_unshaded = true
-flags_vertex_lighting = false
-flags_no_depth_test = false
-flags_use_point_size = false
-flags_world_triplanar = false
-flags_fixed_size = false
-flags_albedo_tex_force_srgb = false
-vertex_color_use_as_albedo = false
-vertex_color_is_srgb = false
-params_diffuse_mode = 1
-params_specular_mode = 0
-params_blend_mode = 0
-params_cull_mode = 0
-params_depth_draw_mode = 0
-params_line_width = 1.0
-params_point_size = 1.0
-params_billboard_mode = 0
-params_grow = false
-params_use_alpha_scissor = false
-albedo_color = Color( 1, 1, 1, 1 )
-albedo_texture = ExtResource( 3 )
-metallic = 0.0
-metallic_specular = 0.5
-metallic_texture_channel = 0
-roughness = 1.0
-roughness_texture_channel = 0
-emission_enabled = false
-normal_enabled = false
-rim_enabled = false
-clearcoat_enabled = false
-anisotropy_enabled = false
-ao_enabled = false
-depth_enabled = false
-subsurf_scatter_enabled = false
-transmission_enabled = false
-refraction_enabled = false
-detail_enabled = false
-uv1_scale = Vector3( 0.125, 0.125, 0.55535 )
-uv1_offset = Vector3( 0.5, 0.5, 0.5 )
-uv1_triplanar = true
-uv1_triplanar_sharpness = 1.0
-uv2_scale = Vector3( 1, 1, 1 )
-uv2_offset = Vector3( 0, 0, 0 )
-uv2_triplanar = false
-uv2_triplanar_sharpness = 1.0
-proximity_fade_enable = false
-distance_fade_enable = false
-
-[sub_resource type="SpatialMaterial" id=21]
+[sub_resource type="SpatialMaterial" id=10]
 
 render_priority = 0
 flags_transparent = false
@@ -506,7 +402,111 @@ uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
 
-[sub_resource type="SpatialMaterial" id=22]
+[sub_resource type="SpatialMaterial" id=11]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 3 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 0.125, 0.125, 0.555349 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+
+[sub_resource type="SpatialMaterial" id=12]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 3 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 0.125, 0.125, 0.55535 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+
+[sub_resource type="SpatialMaterial" id=13]
 
 render_priority = 0
 flags_transparent = false
@@ -576,7 +576,7 @@ bias = 1.5
 normal_bias = 0.0
 interior = false
 compress = false
-data = SubResource( 10 )
+data = SubResource( 1 )
 
 [node name="Vehicle" parent="." instance=ExtResource( 1 )]
 
@@ -587,24 +587,24 @@ SPEED_LIMIT = 45
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 
-environment = SubResource( 12 )
+environment = SubResource( 3 )
 
 [node name="MeshInstance5" parent="." instance=ExtResource( 2 )]
 
 transform = Transform( 0.704975, 0.399586, 7.2996, 0.626221, 0.910403, -3.25, -7.94423, 0.107225, 0.391582, -4.69911, 4.22233, -0.440957 )
-material/0 = SubResource( 13 )
+material/0 = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="MeshInstance6" parent="." instance=ExtResource( 2 )]
 
 transform = Transform( 0.553393, 0.19392, 7.8286, 0.410039, 0.978939, -1.58092, -7.97029, 0.0638278, 0.462223, 6.84388, 0.651724, 0.269785 )
-material/0 = SubResource( 13 )
+material/0 = SubResource( 4 )
 _sections_unfolded = [ "Transform", "material" ]
 
 [node name="MeshInstance7" parent="." instance=ExtResource( 2 )]
 
 transform = Transform( 0.482266, 0.0380488, 7.97965, 0.243631, 0.998738, -0.319507, -7.98173, 0.0327851, 0.472388, 13.1412, -0.379166, 1.35734 )
-material/0 = SubResource( 13 )
+material/0 = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" parent="." instance=ExtResource( 4 )]
@@ -613,26 +613,37 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.2502, 1.84589, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 
-shape = SubResource( 14 )
+shape = SubResource( 5 )
 disabled = false
 
-[node name="Area" parent="Area" instance=ExtResource( 5 )]
+[node name="Snowman" parent="Area" instance=ExtResource( 5 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.866, -1.07597, 1.73587 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.328, -1.14551, 1.37481 )
 
-[node name="Area2" parent="Area" instance=ExtResource( 5 )]
+[node name="Snowman2" parent="Area" instance=ExtResource( 5 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0067, -0.742109, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1397, -1.14551, 5.82617 )
 
-[node name="Snowball" parent="Area" instance=ExtResource( 6 )]
+[node name="Snowman3" parent="Area" instance=ExtResource( 5 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.3556, 12.8979, -10.1008 )
-angular_velocity = Vector3( 0, 0, 5 )
-_sections_unfolded = [ "Angular", "Collision", "Transform" ]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3422, -1.14551, -1.54939 )
 
-[node name="Area3" parent="Area" instance=ExtResource( 5 )]
+[node name="SnowBallTrap" parent="Area" instance=ExtResource( 6 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.38235, -0.742109, 4.51747 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.8058, 2.19466, -23.3772 )
+mode = 0
+
+[node name="SnowBallTrap2" parent="Area" instance=ExtResource( 6 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.6481, 0.457627, 2.14457 )
+
+[node name="SnowBallTrap3" parent="Area" instance=ExtResource( 6 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2983, 0.757522, 5.10123 )
+
+[node name="SnowBallTrap4" parent="Area" instance=ExtResource( 6 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2983, 0.757522, 8.41176 )
 
 [node name="FinishTrigger" parent="." instance=ExtResource( 7 )]
 
@@ -642,22 +653,67 @@ transform = Transform( 0.988245, 0, 0.15288, 0, 1, 0, -0.15288, 0, 0.988245, 257
 [node name="CollisionShape" type="CollisionShape" parent="FinishTrigger"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.633548, 0.799002 )
-shape = SubResource( 15 )
+shape = SubResource( 6 )
 disabled = false
 
 [node name="MeshInstance2" parent="." instance=ExtResource( 8 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.4987, 1.83925, 6.28323 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2205, 3.6744, 4.96751 )
+gravity_scale = 0.75
+
+[node name="MeshInstance3" parent="." instance=ExtResource( 8 )]
+
+transform = Transform( 0.918439, 0, -0.395562, 0, 1, 0, 0.395562, 0, 0.918439, 133.468, 4.12729, 15.5982 )
+gravity_scale = 0.75
+
+[node name="MeshInstance11" parent="." instance=ExtResource( 8 )]
+
+transform = Transform( 0.918439, 0, -0.395562, 0, 1, 0, 0.395562, 0, 0.918439, 131.301, 4.12729, 17.5602 )
+gravity_scale = 0.75
+
+[node name="MeshInstance12" parent="." instance=ExtResource( 8 )]
+
+transform = Transform( 0.918439, 0, -0.395562, 0, 1, 0, 0.395562, 0, 0.918439, 136.909, 4.12729, 17.5602 )
+gravity_scale = 0.75
+
+[node name="MeshInstance13" parent="." instance=ExtResource( 8 )]
+
+transform = Transform( 0.918439, 0, -0.395562, 0, 1, 0, 0.395562, 0, 0.918439, 137.539, 4.28799, 11.358 )
+gravity_scale = 0.75
+
+[node name="MeshInstance16" parent="." instance=ExtResource( 8 )]
+
+transform = Transform( 0.918439, 0, -0.395562, 0, 1, 0, 0.395562, 0, 0.918439, 36.9611, 1.6111, -0.480446 )
 gravity_scale = 0.75
 
 [node name="MeshInstance4" parent="." instance=ExtResource( 8 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0445, 2.33063, 4.76894 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9111, 1.92761, 3.59255 )
+gravity_scale = 0.75
+
+[node name="MeshInstance9" parent="." instance=ExtResource( 8 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 134.332, 3.57208, 9.96341 )
+gravity_scale = 0.75
+
+[node name="MeshInstance14" parent="." instance=ExtResource( 8 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.7538, 1.73596, -1.87502 )
 gravity_scale = 0.75
 
 [node name="MeshInstance8" parent="." instance=ExtResource( 8 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.4327, 1.53833, 4.97956 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2212, 1.53833, 4.97956 )
+gravity_scale = 0.75
+
+[node name="MeshInstance10" parent="." instance=ExtResource( 8 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 134.778, 3.56178, 12.7343 )
+gravity_scale = 0.75
+
+[node name="MeshInstance15" parent="." instance=ExtResource( 8 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2, 1.92783, 0.895828 )
 gravity_scale = 0.75
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
@@ -688,8 +744,6 @@ directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Light", "Shadow" ]
 
 [node name="Env" type="Node" parent="."]
-
-editor/display_folded = true
 
 [node name="rock07" parent="Env" instance=ExtResource( 9 )]
 
@@ -839,6 +893,10 @@ transform = Transform( 1, 0, 0, 0, 0.927613, -0.373542, 0, 0.373542, 0.927613, 6
 
 transform = Transform( -0.602147, -0.29823, -0.740593, 0, 0.927613, -0.373542, 0.798385, -0.224927, -0.558559, 133.515, 8.39315, 1.05982 )
 
+[node name="rock52" parent="Env" instance=ExtResource( 14 )]
+
+transform = Transform( -0.617626, 0.186423, -0.764059, -0.749138, 0.156319, 0.643705, 0.239439, 0.969954, 0.0431098, 109.501, 2.00377, -1.92216 )
+
 [node name="rock38" parent="Env" instance=ExtResource( 14 )]
 
 transform = Transform( -0.602147, -0.29823, -0.740593, 0, 0.927613, -0.373542, 0.798385, -0.224927, -0.558559, 162.376, 4.46521, 25.5529 )
@@ -897,43 +955,48 @@ transform = Transform( 0.908397, 0, 0.418108, 0, 1, 0, -0.418108, 0, 0.908397, 2
 
 [node name="Present" parent="." instance=ExtResource( 17 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8633, 0.961184, 0.116052 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 102.234, 1.9642, 8.62831 )
+collision_mask = 1
+
+[node name="Present2" parent="." instance=ExtResource( 17 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.829, 2.24241, 17.516 )
 collision_mask = 1
 
 [node name="Road" parent="." instance=ExtResource( 18 )]
 
 transform = Transform( -7.20055e-008, 0, 8.23647, 0, 1, 0, -2, 0, -4.37114e-007, 43.1554, 0.0884933, 1.60599 )
-material_override = SubResource( 16 )
+material_override = SubResource( 7 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="Road2" parent="." instance=ExtResource( 18 )]
 
 transform = Transform( -0.312684, 0.0508987, 4.38188, -0.00466316, -0.998687, 0.22732, 1.96722, 0.00572288, 0.697026, 93.2315, 1.01072, 4.29762 )
-material_override = SubResource( 17 )
+material_override = SubResource( 8 )
 
 [node name="Road7" parent="." instance=ExtResource( 18 )]
 
 transform = Transform( -0.423731, -0.0494976, -4.33554, -0.00466316, -0.998687, 0.22732, -1.94633, 0.0131688, 0.943336, 242.918, 1.01072, 7.98885 )
-material_override = SubResource( 18 )
+material_override = SubResource( 9 )
 
 [node name="Road3" parent="." instance=ExtResource( 18 )]
 
 transform = Transform( 0.195452, -0.022567, -4.42022, 0.0201819, -0.999668, 0.105179, -1.98221, -0.0124033, -0.434776, 157.79, 1.2466, 19.2332 )
-material_override = SubResource( 19 )
+material_override = SubResource( 10 )
 
 [node name="Road5" parent="." instance=ExtResource( 18 )]
 
 transform = Transform( 0.538392, 0.0255318, 4.27593, 0.0201819, -0.999668, 0.105179, 1.91768, 0.00335251, -1.20158, 177.346, 1.2466, 17.5398 )
-material_override = SubResource( 20 )
+material_override = SubResource( 11 )
 
 [node name="Road4" parent="." instance=ExtResource( 18 )]
 
 transform = Transform( 0.610315, -0.000433071, -4.22912, 0.0209628, -0.999937, 0.0170705, -1.89601, -0.011195, -1.36114, 126.469, 1.77117, 12.4661 )
-material_override = SubResource( 21 )
+material_override = SubResource( 12 )
 
 [node name="Road6" parent="." instance=ExtResource( 18 )]
 
 transform = Transform( 0.120571, 0.0044725, 4.4346, 0.0209628, -0.999937, 0.0170705, 1.98816, 0.0102719, -0.269115, 208.984, 1.77117, 12.46 )
-material_override = SubResource( 22 )
+material_override = SubResource( 13 )
 
 
