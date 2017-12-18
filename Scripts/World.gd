@@ -42,7 +42,7 @@ func _process(delta):
 
 func play_update(delta):
 	var cam_rot = (camera.rotation.y-vehicle.rotation.y)
-	var cam_goal = vehicle.translation - Vector3(8,-9,0).rotated(Vector3(0,1,0),vehicle.rotation.y - PI/2)
+	var cam_goal = vehicle.translation - Vector3(15,-13,0).rotated(Vector3(0,1,0),vehicle.rotation.y - PI/2)
 	var vec = (cam_goal-camera.translation)/5.0
 	if vec.length() > 1.0/5.0:
 		camera.translation += (cam_goal-camera.translation).normalized()/5.0

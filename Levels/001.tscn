@@ -1,19 +1,162 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=44 format=2]
 
-[ext_resource path="res://Tiles/StaticCube.tscn" type="PackedScene" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Vehicle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Tiles/SpawnTrigger.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tiles/Snowman.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Tiles/SnowBallTrap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Tiles/FinishTrigger.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Tiles/rock05.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Mesh/rock05.tres" type="ArrayMesh" id=7]
+[ext_resource path="res://Scripts/genmesh.gd" type="Script" id=8]
+[ext_resource path="res://Tiles/RigidBlock.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Tiles/rock02.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Tiles/rock04.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Tiles/rock01.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Tiles/tree01.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Tiles/tree02.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Tiles/rock03.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Tiles/tree03.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Tiles/Present.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Tiles/Road.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Data/Textures/groundtexture.png" type="Texture" id=19]
+[ext_resource path="res://vfx/Particles.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Data/Textures/snowflake.png" type="Texture" id=21]
+[ext_resource path="res://Scripts/Snowman.gd" type="Script" id=22]
 
+[sub_resource type="GIProbeData" id=1]
 
-[sub_resource type="SpatialMaterial" id=1]
+bounds = AABB( -228.292, -20.8457, -58.8738, 456.583, 41.6914, 117.748 )
+cell_size = 1.78353
+to_cell_xform = Transform( 0.560686, 0, 0, 0, 0.560686, 0, 0, 0, 0.560686, 128, 11.6879, 33.0097 )
+dynamic_data = PoolIntArray( 0, 9, 256, 32, 128, 1, 0, 0, 697889200, 0, 0, 0, 0, 0, 53191872, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+dynamic_range = 4
+energy = 1.0
+bias = 1.5
+normal_bias = 0.0
+propagation = 1.0
+interior = false
+compress = false
+
+[sub_resource type="ProceduralSky" id=2]
+
+radiance_size = 4
+sky_top_color = Color( 0, 0.438818, 1, 1 )
+sky_horizon_color = Color( 0.348633, 0.575607, 0.929688, 1 )
+sky_curve = 0.25
+sky_energy = 1.0
+ground_bottom_color = Color( 0, 0.357422, 0.714844, 1 )
+ground_horizon_color = Color( 0, 0.65, 1, 1 )
+ground_curve = 0.01
+ground_energy = 1.0
+sun_color = Color( 1, 1, 1, 1 )
+sun_latitude = 35.0
+sun_longitude = 0.0
+sun_angle_min = 1.0
+sun_angle_max = 100.0
+sun_curve = 0.05
+sun_energy = 16.0
+texture_size = 2
+_sections_unfolded = [ "Ground", "Sky" ]
+
+[sub_resource type="Environment" id=3]
+
+background_mode = 2
+background_sky = SubResource( 2 )
+background_sky_custom_fov = 0.0
+background_color = Color( 0, 0, 0, 1 )
+background_energy = 0.5
+background_canvas_max_layer = 0
+ambient_light_color = Color( 0, 0, 0, 1 )
+ambient_light_energy = 0.2
+ambient_light_sky_contribution = 0.7
+fog_enabled = false
+fog_color = Color( 0.5, 0.6, 0.7, 1 )
+fog_sun_color = Color( 1, 0.9, 0.7, 1 )
+fog_sun_amount = 0.0
+fog_depth_enabled = true
+fog_depth_begin = 14.0
+fog_depth_curve = 0.901253
+fog_transmit_enabled = false
+fog_transmit_curve = 1.0
+fog_height_enabled = false
+fog_height_min = 0.0
+fog_height_max = 100.0
+fog_height_curve = 1.0
+tonemap_mode = 0
+tonemap_exposure = 1.0
+tonemap_white = 1.0
+auto_exposure_enabled = false
+auto_exposure_scale = 0.4
+auto_exposure_min_luma = 0.05
+auto_exposure_max_luma = 8.0
+auto_exposure_speed = 0.5
+ss_reflections_enabled = true
+ss_reflections_max_steps = 64
+ss_reflections_fade_in = 0.15
+ss_reflections_fade_out = 2.0
+ss_reflections_depth_tolerance = 0.2
+ss_reflections_roughness = true
+ssao_enabled = true
+ssao_radius = 1.0
+ssao_intensity = 1.0
+ssao_radius2 = 0.0
+ssao_intensity2 = 1.0
+ssao_bias = 0.01
+ssao_light_affect = 0.0
+ssao_color = Color( 0, 0, 0, 1 )
+ssao_quality = 0
+ssao_blur = 3
+ssao_edge_sharpness = 4.0
+dof_blur_far_enabled = false
+dof_blur_far_distance = 50.0
+dof_blur_far_transition = 5.0
+dof_blur_far_amount = 0.1
+dof_blur_far_quality = 1
+dof_blur_near_enabled = false
+dof_blur_near_distance = 2.0
+dof_blur_near_transition = 1.0
+dof_blur_near_amount = 0.1
+dof_blur_near_quality = 1
+glow_enabled = false
+glow_levels/1 = false
+glow_levels/2 = false
+glow_levels/3 = true
+glow_levels/4 = false
+glow_levels/5 = true
+glow_levels/6 = false
+glow_levels/7 = false
+glow_intensity = 0.8
+glow_strength = 1.0
+glow_bloom = 0.0
+glow_blend_mode = 2
+glow_hdr_threshold = 1.0
+glow_hdr_scale = 2.0
+glow_bicubic_upscale = false
+adjustment_enabled = true
+adjustment_brightness = 1.0
+adjustment_contrast = 1.0
+adjustment_saturation = 1.0
+_sections_unfolded = [ "Background", "Fog" ]
+
+[sub_resource type="BoxShape" id=5]
+
+extents = Vector3( 5.51807, 4.12476, 9.20121 )
+
+[sub_resource type="BoxShape" id=6]
+
+extents = Vector3( 1, 6.01358, 8.18876 )
+
+[sub_resource type="SpatialMaterial" id=7]
 
 render_priority = 0
 flags_transparent = false
-flags_unshaded = false
+flags_unshaded = true
 flags_vertex_lighting = false
 flags_no_depth_test = false
 flags_use_point_size = false
 flags_world_triplanar = false
 flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
 vertex_color_use_as_albedo = false
 vertex_color_is_srgb = false
 params_diffuse_mode = 1
@@ -26,10 +169,10 @@ params_point_size = 1.0
 params_billboard_mode = 0
 params_grow = false
 params_use_alpha_scissor = false
-albedo_color = Color( 0.566406, 0.566406, 0.566406, 1 )
-albedo_texture = ExtResource( 2 )
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 19 )
 metallic = 0.0
-metallic_specular = 0.0
+metallic_specular = 0.5
 metallic_texture_channel = 0
 roughness = 1.0
 roughness_texture_channel = 0
@@ -44,8 +187,8 @@ subsurf_scatter_enabled = false
 transmission_enabled = false
 refraction_enabled = false
 detail_enabled = false
-uv1_scale = Vector3( 0.2, 0.2, 0.2 )
-uv1_offset = Vector3( 0, 0, 0 )
+uv1_scale = Vector3( 0.125, 0.125, 1.02956 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 uv1_triplanar_sharpness = 1.0
 uv2_scale = Vector3( 1, 1, 1 )
@@ -54,98 +197,849 @@ uv2_triplanar = false
 uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
-_sections_unfolded = [ "Albedo", "Flags", "Metallic", "Parameters", "Roughness", "UV1", "Vertex Color" ]
 
-[sub_resource type="CubeMesh" id=2]
+[sub_resource type="SpatialMaterial" id=17]
 
-size = Vector3( 256, 0.1, 16 )
-subdivide_width = 0
-subdivide_height = 0
-subdivide_depth = 0
+render_priority = 0
+flags_transparent = false
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 19 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 0.125, 0.125, 0.632002 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
 
-[sub_resource type="ConcavePolygonShape" id=3]
+[sub_resource type="SpatialMaterial" id=18]
 
-data = PoolVector3Array( -128, 0.05, 8, 128, 0.05, 8, -128, -0.05, 8, 128, 0.05, 8, 128, -0.05, 8, -128, -0.05, 8, 128, 0.05, -8, -128, 0.05, -8, 128, -0.05, -8, -128, 0.05, -8, -128, -0.05, -8, 128, -0.05, -8, 128, 0.05, 8, 128, 0.05, -8, 128, -0.05, 8, 128, 0.05, -8, 128, -0.05, -8, 128, -0.05, 8, -128, 0.05, -8, -128, 0.05, 8, -128, -0.05, -8, -128, 0.05, 8, -128, -0.05, 8, -128, -0.05, -8, 128, 0.05, 8, -128, 0.05, 8, 128, 0.05, -8, -128, 0.05, 8, -128, 0.05, -8, 128, 0.05, -8, -128, -0.05, 8, 128, -0.05, 8, -128, -0.05, -8, 128, -0.05, 8, 128, -0.05, -8, -128, -0.05, -8 )
+render_priority = 0
+flags_transparent = false
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 19 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 0.125, 0.125, 0.632002 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
 
-[node name="MeshInstance" type="Spatial"]
+[sub_resource type="SpatialMaterial" id=8]
 
-_sections_unfolded = [ "Geometry", "Transform" ]
+render_priority = 0
+flags_transparent = false
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 19 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 0.125, 0.125, 0.555349 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
 
-[node name="MeshInstance" parent="." instance=ExtResource( 1 )]
+[sub_resource type="SpatialMaterial" id=23]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 29.4401, 0.767237, 3.95026 )
-_sections_unfolded = [ "Transform" ]
+render_priority = 0
+flags_transparent = false
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 19 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 0.125, 0.125, 0.55535 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
 
-[node name="MeshInstance8" parent="." instance=ExtResource( 1 )]
+[sub_resource type="SpatialMaterial" id=10]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 95.878, 0.767237, -3.88417 )
-_sections_unfolded = [ "Transform" ]
+render_priority = 0
+flags_transparent = false
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 19 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 0.125, 0.125, 0.555349 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
 
-[node name="MeshInstance11" parent="." instance=ExtResource( 1 )]
+[sub_resource type="SpatialMaterial" id=11]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 219.813, 0.767237, -3.88417 )
-_sections_unfolded = [ "Transform" ]
+render_priority = 0
+flags_transparent = false
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 19 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 0.125, 0.125, 0.555349 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
 
-[node name="MeshInstance2" parent="." instance=ExtResource( 1 )]
+[sub_resource type="SpatialMaterial" id=12]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 48.2819, 0.767237, -4.0549 )
-_sections_unfolded = [ "Transform" ]
+render_priority = 0
+flags_transparent = false
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 19 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 0.125, 0.125, 0.55535 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
 
-[node name="MeshInstance13" parent="." instance=ExtResource( 1 )]
+[sub_resource type="SpatialMaterial" id=19]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 172.217, 0.767237, 3.75756 )
-_sections_unfolded = [ "Transform" ]
+render_priority = 0
+flags_transparent = false
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 19 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 0.125, 0.125, 0.55535 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
 
-[node name="MeshInstance6" parent="." instance=ExtResource( 1 )]
+[sub_resource type="SpatialMaterial" id=20]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 114.72, 0.767237, 3.75756 )
-_sections_unfolded = [ "Transform" ]
+render_priority = 0
+flags_transparent = false
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 19 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 0.125, 0.125, 0.55535 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
 
-[node name="MeshInstance14" parent="." instance=ExtResource( 1 )]
+[sub_resource type="SpatialMaterial" id=21]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 238.655, 0.767237, 3.75756 )
-_sections_unfolded = [ "Transform" ]
+render_priority = 0
+flags_transparent = false
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 19 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 0.125, 0.125, 0.55535 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
 
-[node name="MeshInstance3" parent="." instance=ExtResource( 1 )]
+[sub_resource type="SpatialMaterial" id=24]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 64.1853, 0.767237, 3.75756 )
-_sections_unfolded = [ "Transform" ]
+render_priority = 0
+flags_transparent = false
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 19 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 0.125, 0.125, 0.55535 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
 
-[node name="MeshInstance10" parent="." instance=ExtResource( 1 )]
+[sub_resource type="SpatialMaterial" id=13]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 188.12, 0.767237, 3.75756 )
-_sections_unfolded = [ "Transform" ]
+render_priority = 0
+flags_transparent = false
+flags_unshaded = true
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 1
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 19 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 0.125, 0.125, 0.555349 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
 
-[node name="MeshInstance5" parent="." instance=ExtResource( 1 )]
+[sub_resource type="ParticlesMaterial" id=14]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 130.623, 0.767237, 3.75756 )
-_sections_unfolded = [ "Transform" ]
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 16, 0, 56 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = false
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, -9.8, 0 )
+initial_velocity = 0.01
+initial_velocity_random = 0.0
+angular_velocity = 14.99
+angular_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 9.0
+damping_random = 0.0
+angle = 45.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 1.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Damping", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Orbit Velocity", "Scale", "Spread", "Trail" ]
 
-[node name="MeshInstance12" parent="." instance=ExtResource( 1 )]
+[sub_resource type="SpatialMaterial" id=15]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 254.558, 0.767237, 3.75756 )
-_sections_unfolded = [ "Transform" ]
+render_priority = 0
+flags_transparent = true
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 2
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 21 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = true
+emission = Color( 0.75, 0.75, 0.75, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = true
+proximity_fade_distance = 0.1
+distance_fade_enable = false
+_sections_unfolded = [ "Depth", "Distance Fade", "Flags", "Metallic", "Parameters", "Proximity Fade", "Roughness", "Subsurf Scatter", "Transmission" ]
 
-[node name="MeshInstance4" parent="." instance=ExtResource( 1 )]
+[sub_resource type="QuadMesh" id=16]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 79.1205, 0.767237, -4.25946 )
-_sections_unfolded = [ "Transform" ]
+material = SubResource( 15 )
+size = Vector2( 0.69, 0.69 )
 
-[node name="MeshInstance9" parent="." instance=ExtResource( 1 )]
+[node name="002" type="Spatial" index="0"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 203.055, 0.767237, -4.25946 )
-_sections_unfolded = [ "Transform" ]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.328631, -0.54722, -0.476068 )
+_sections_unfolded = [ "Geometry" ]
 
-[node name="MeshInstance7" parent="." instance=ExtResource( 1 )]
+[node name="GIProbe" type="GIProbe" parent="." index="0"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.04599, 145.559, 0.767237, -4.25946 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="MeshInstance15" type="MeshInstance" parent="."]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 128, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 76.8936, 4.09584, -1.10835 )
 layers = 1
-material_override = SubResource( 1 )
+subdiv = 2
+extents = Vector3( 228.292, 20.8457, 58.8738 )
+dynamic_range = 4
+energy = 1.0
+propagation = 1.0
+bias = 1.5
+normal_bias = 0.0
+interior = false
+compress = false
+data = SubResource( 1 )
+
+[node name="Vehicle" parent="." index="1" instance=ExtResource( 1 )]
+
+transform = Transform( 0.153068, -0.0842741, -0.984615, -0.0556, 0.994044, -0.0937247, 0.98665, 0.0690909, 0.147471, 245.46, 6.71249, 4.85107 )
+_sections_unfolded = [ "Collision", "Mass", "Motion", "Transform" ]
+STEER_SPEED = 2.0
+SPEED_LIMIT = 45
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2"]
+
+environment = SubResource( 3 )
+
+[node name="Area" parent="." index="3" instance=ExtResource( 2 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.8599, 1.84589, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
+
+shape = SubResource( 5 )
+disabled = false
+
+[node name="Snowman" parent="Area" index="1" instance=ExtResource( 3 )]
+
+transform = Transform( -0.995917, 0, -0.0902761, 0, 1, 0, 0.0902761, 0, -0.995917, -27.1334, -1.14551, 0.369127 )
+
+[node name="Snowman2" parent="Area" index="2" instance=ExtResource( 3 )]
+
+transform = Transform( -0.995917, 0, -0.0902761, 0, 1, 0, 0.0902761, 0, -0.995917, -33.3232, -1.14551, -3.5394 )
+
+[node name="Snowman3" parent="Area" index="3" instance=ExtResource( 3 )]
+
+transform = Transform( -0.995917, 0, -0.0902761, 0, 1, 0, 0.0902761, 0, -0.995917, -39.8304, -1.14551, 4.45626 )
+
+[node name="SnowBallTrap2" parent="Area" index="4" instance=ExtResource( 4 )]
+
+transform = Transform( -0.14448, 0, -0.989508, 0, 1, 0, 0.989508, 0, -0.14448, -75.5509, 0.148319, -12.2025 )
+
+[node name="SnowBallTrap3" parent="Area" index="5" instance=ExtResource( 4 )]
+
+transform = Transform( -0.14448, 0, -0.989508, 0, 1, 0, 0.989508, 0, -0.14448, -67.7254, -0.0845022, -10.1289 )
+
+[node name="SnowBallTrap4" parent="Area" index="6" instance=ExtResource( 4 )]
+
+transform = Transform( -0.14448, 0, -0.989508, 0, 1, 0, 0.989508, 0, -0.14448, -71.0012, 0.24475, -10.1256 )
+
+[node name="SnowBallTrap" parent="." index="4" instance=ExtResource( 4 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 199.919, 4.04055, 9.76862 )
+mode = 0
+
+[node name="SnowBallTrap2" parent="." index="5" instance=ExtResource( 4 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 194.897, 2.83309, 16.8771 )
+
+[node name="SnowBallTrap3" parent="." index="6" instance=ExtResource( 4 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 202.898, 3.32489, 18.5776 )
+
+[node name="SnowBallTrap4" parent="." index="7" instance=ExtResource( 4 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 191.737, 2.60341, 13.1752 )
+
+[node name="Area2" parent="." index="8" instance=ExtResource( 2 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 193.422, 1.84589, 14.372 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area2" index="0"]
+
+shape = SubResource( 5 )
+disabled = false
+
+[node name="Snowman" parent="Area2" index="1" instance=ExtResource( 3 )]
+
+transform = Transform( -0.998222, 0, -0.0595978, 0, 1, 0, 0.0595978, 0, -0.998222, -32.2185, 0.529512, 7.29199 )
+
+[node name="Snowman2" parent="Area2" index="2" instance=ExtResource( 3 )]
+
+transform = Transform( -0.997125, 0, -0.075771, 0, 1, 0, 0.075771, 0, -0.997125, -45.8352, 0.675494, -0.883357 )
+
+[node name="Snowman3" parent="Area2" index="3" instance=ExtResource( 3 )]
+
+transform = Transform( -0.990119, 0, -0.140232, 0, 1, 0, 0.140232, 0, -0.990119, -37.5735, 0.766055, 2.41995 )
+
+[node name="FinishTrigger" parent="." index="9" instance=ExtResource( 5 )]
+
+transform = Transform( 0.988245, 0, 0.15288, 0, 1, 0, -0.15288, 0, 0.988245, -50.7057, 15.2056, -0.165708 )
+
+[node name="CollisionShape" type="CollisionShape" parent="FinishTrigger" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.43773, 0.799002 )
+shape = SubResource( 6 )
+disabled = false
+
+[node name="rock01" type="MeshInstance" parent="FinishTrigger" index="1" instance=ExtResource( 6 )]
+
+transform = Transform( -0.363819, 0.0184564, -0.931287, 0.594036, 0.774698, -0.216714, 0.717466, -0.632062, -0.292813, -4.76746, -4.1566, 14.2123 )
+layers = 1
+material_override = null
 cast_shadow = 1
 extra_cull_margin = 0.0
 use_in_baked_light = false
@@ -153,25 +1047,530 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 2 )
+mesh = ExtResource( 7 )
 skeleton = NodePath("..")
 material/0 = null
+script = ExtResource( 8 )
 
-[node name="StaticBody" type="StaticBody" parent="MeshInstance15"]
+[node name="rock02" parent="FinishTrigger" index="2" instance=ExtResource( 6 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 0, 0 )
-input_ray_pickable = true
-input_capture_on_drag = false
-collision_layer = 1
+transform = Transform( -0.160105, 0.314763, 0.93557, 0.578839, 0.797671, -0.169311, -0.79957, 0.514436, -0.309909, -6.30381, -4.1566, -8.18187 )
+
+[node name="rock03" parent="FinishTrigger" index="3" instance=ExtResource( 6 )]
+
+transform = Transform( 0.346208, 0.137053, 0.928093, -0.937927, 0.028622, 0.34565, 0.0208083, -0.99015, 0.138455, -1.05231, -9.43856, 6.9685 )
+
+[node name="MeshInstance2" parent="." index="10" instance=ExtResource( 9 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2205, 3.6744, 4.96751 )
+gravity_scale = 0.75
+
+[node name="MeshInstance3" parent="." index="11" instance=ExtResource( 9 )]
+
+transform = Transform( 0.918439, 0, -0.395562, 0, 1, 0, 0.395562, 0, 0.918439, 133.468, 3.46556, 15.5982 )
+gravity_scale = 0.75
+
+[node name="MeshInstance11" parent="." index="12" instance=ExtResource( 9 )]
+
+transform = Transform( 0.918439, 0, -0.395562, 0, 1, 0, 0.395562, 0, 0.918439, 131.301, 4.12729, 17.5602 )
+gravity_scale = 0.75
+
+[node name="MeshInstance12" parent="." index="13" instance=ExtResource( 9 )]
+
+transform = Transform( 0.918439, 0, -0.395562, 0, 1, 0, 0.395562, 0, 0.918439, 136.909, 4.12729, 17.5602 )
+gravity_scale = 0.75
+
+[node name="MeshInstance13" parent="." index="14" instance=ExtResource( 9 )]
+
+transform = Transform( 0.918439, 0, -0.395562, 0, 1, 0, 0.395562, 0, 0.918439, 137.539, 4.28799, 11.358 )
+gravity_scale = 0.75
+
+[node name="MeshInstance16" parent="." index="15" instance=ExtResource( 9 )]
+
+transform = Transform( 0.918439, 0, -0.395562, 0, 1, 0, 0.395562, 0, 0.918439, 23.8789, 1.6111, 2.06631 )
+gravity_scale = 0.75
+
+[node name="MeshInstance4" parent="." index="16" instance=ExtResource( 9 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0869, 1.92761, 3.40571 )
+gravity_scale = 0.75
+
+[node name="MeshInstance9" parent="." index="17" instance=ExtResource( 9 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 134.332, 3.57208, 9.96341 )
+gravity_scale = 0.75
+
+[node name="MeshInstance14" parent="." index="18" instance=ExtResource( 9 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8086, 3.68282, 32.5017 )
+gravity_scale = 0.75
+
+[node name="MeshInstance19" parent="." index="19" instance=ExtResource( 9 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8086, 3.60908, 35.2669 )
+gravity_scale = 0.75
+
+[node name="MeshInstance20" parent="." index="20" instance=ExtResource( 9 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8086, 5.57215, 35.2669 )
+gravity_scale = 0.75
+
+[node name="MeshInstance21" parent="." index="21" instance=ExtResource( 9 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 68.8086, 5.7757, 32.4905 )
+gravity_scale = 0.75
+
+[node name="MeshInstance17" parent="." index="22" instance=ExtResource( 9 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.7538, 1.73596, -3.08746 )
+gravity_scale = 0.75
+
+[node name="MeshInstance18" parent="." index="23" instance=ExtResource( 9 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8187, 1.73596, -0.827641 )
+gravity_scale = 0.75
+
+[node name="MeshInstance8" parent="." index="24" instance=ExtResource( 9 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2212, 1.53833, 4.97956 )
+gravity_scale = 0.75
+
+[node name="MeshInstance10" parent="." index="25" instance=ExtResource( 9 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 134.778, 3.56178, 12.7343 )
+gravity_scale = 0.75
+
+[node name="MeshInstance15" parent="." index="26" instance=ExtResource( 9 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2, 1.92783, 7.09005 )
+gravity_scale = 0.75
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="27"]
+
+transform = Transform( 1, 0, 0, 0, -0.756745, 0.65371, 0, -0.65371, -0.756745, 23.2788, 17.7411, -11.5009 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 1.0
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.1
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+directional_shadow_mode = 2
+directional_shadow_split_1 = 0.1
+directional_shadow_split_2 = 0.2
+directional_shadow_split_3 = 0.5
+directional_shadow_blend_splits = false
+directional_shadow_normal_bias = 0.8
+directional_shadow_bias_split_scale = 0.25
+directional_shadow_depth_range = 0
+directional_shadow_max_distance = 200.0
+_sections_unfolded = [ "Light", "Shadow" ]
+
+[node name="Env" type="Node" parent="." index="28"]
+
+[node name="rock07" parent="Env" index="0" instance=ExtResource( 10 )]
+
+transform = Transform( 0.0165407, -0.0060727, 0.999845, -0.00796137, 0.999949, 0.00620504, -0.999832, -0.00806277, 0.0164916, 62.746, 0.571782, 13.9794 )
+
+[node name="rock08" parent="Env" index="1" instance=ExtResource( 10 )]
+
+transform = Transform( -0.0351616, 0, -0.999382, 0, 1, 0, 0.999382, 0, -0.0351616, 19.3046, 0.571782, 13.9794 )
+
+[node name="rock09" parent="Env" index="2" instance=ExtResource( 10 )]
+
+transform = Transform( -0.247307, 0, -0.968937, 0, 1, 0, 0.968937, 0, -0.247307, 27.954, -3.29669, 12.469 )
+
+[node name="rock05" parent="Env" index="3" instance=ExtResource( 11 )]
+
+transform = Transform( 0.614734, 0, 0.788734, 0, 1, 0, -0.788734, 0, 0.614734, 67.8842, 1.0766, -10.8189 )
+
+[node name="rock21" parent="Env" index="4" instance=ExtResource( 11 )]
+
+transform = Transform( 0.406979, 0, -0.913437, 0, 1, 0, 0.913437, 0, 0.406979, 99.799, 1.0766, -10.8189 )
+
+[node name="rock34" parent="Env" index="5" instance=ExtResource( 11 )]
+
+transform = Transform( -0.832886, 0, -0.553444, 0, 1, 0, 0.553444, 0, -0.832886, 137.204, 1.0766, 27.4592 )
+
+[node name="rock35" parent="Env" index="6" instance=ExtResource( 11 )]
+
+transform = Transform( 0.600413, 0, 0.79969, 0, 1, 0, -0.79969, 0, 0.600413, 150.268, 1.0766, 27.4592 )
+
+[node name="rock36" parent="Env" index="7" instance=ExtResource( 11 )]
+
+transform = Transform( 0.600413, 0, 0.79969, -0.776548, 0.238829, 0.583038, -0.190989, -0.971062, 0.143396, 159.113, 1.0766, 31.7577 )
+
+[node name="rock37" parent="Env" index="8" instance=ExtResource( 11 )]
+
+transform = Transform( 0.712125, 0.0785707, 0.697642, 0.59671, 0.455813, -0.660433, -0.369885, 0.886601, 0.277712, 159.113, -0.840622, 5.20221 )
+
+[node name="rock22" parent="Env" index="9" instance=ExtResource( 11 )]
+
+transform = Transform( -0.762381, 0.141326, -0.631507, 0.168188, 0.985599, 0.0175255, 0.62489, -0.0928506, -0.775171, 98.9452, 1.27976, 16.5411 )
+
+[node name="rock06" parent="Env" index="10" instance=ExtResource( 11 )]
+
+transform = Transform( -0.777495, 0, -0.62889, 0, 1, 0, 0.62889, 0, -0.777495, 54.1044, 1.0766, -9.39118 )
+
+[node name="rock04" parent="Env" index="11" instance=ExtResource( 6 )]
+
+transform = Transform( 0.614734, 0, 0.788734, 0, 1, 0, -0.788734, 0, 0.614734, 32.0605, -0.160749, -10.0935 )
+
+[node name="rock01" parent="Env" index="12" instance=ExtResource( 12 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.57386, 1.28394, 12.8925 )
+
+[node name="rock02" parent="Env" index="13" instance=ExtResource( 12 )]
+
+transform = Transform( -0.576486, 0, 0.817107, 0, 1, 0, -0.817107, 0, -0.576486, 41.3416, 2.34373, 26.884 )
+
+[node name="rock55" parent="Env" index="14" instance=ExtResource( 12 )]
+
+transform = Transform( -0.994875, 0, -0.101114, 0, 1, 0, 0.101114, 0, -0.994875, 78.5878, 2.34373, 42.9901 )
+
+[node name="rock56" parent="Env" index="15" instance=ExtResource( 12 )]
+
+transform = Transform( 0.89868, 0, -0.438605, 0, 1, 0, 0.438605, 0, 0.89868, 49.9314, 2.34373, 39.3831 )
+
+[node name="rock57" parent="Env" index="16" instance=ExtResource( 12 )]
+
+transform = Transform( -0.895848, 0, -0.444362, 0, 1, 0, 0.444362, 0, -0.895848, 42.5908, 2.34373, 34.492 )
+
+[node name="rock25" parent="Env" index="17" instance=ExtResource( 12 )]
+
+transform = Transform( -0.979546, 0, 0.20122, 0, 1, 0, -0.20122, 0, -0.979546, 82.9462, -8.20483, 13.2621 )
+
+[node name="rock26" parent="Env" index="18" instance=ExtResource( 12 )]
+
+transform = Transform( 0.997146, 0, 0.0755045, 0, 1, 0, -0.0755045, 0, 0.997146, 69.4846, 3.53684, 22.2854 )
+
+[node name="rock03" parent="Env" index="19" instance=ExtResource( 12 )]
+
+transform = Transform( -0.994875, 0, -0.101114, 0, 1, 0, 0.101114, 0, -0.994875, 90.5991, 2.34373, -12.4774 )
+
+[node name="rock29" parent="Env" index="20" instance=ExtResource( 12 )]
+
+transform = Transform( 0.926826, 0, -0.375492, 0, 1, 0, 0.375492, 0, 0.926826, 113.004, 1.54136, -6.49473 )
+
+[node name="rock19" parent="Env" index="21" instance=ExtResource( 12 )]
+
+transform = Transform( -0.935702, 0, -0.352793, 0, 1, 0, 0.352793, 0, -0.935702, 124.915, 2.13409, 29.8677 )
+
+[node name="rock53" parent="Env" index="22" instance=ExtResource( 12 )]
+
+transform = Transform( 0.99831, 0, -0.0581242, 0, 1, 0, 0.0581242, 0, 0.99831, 102.097, 2.13409, 34.8481 )
+
+[node name="rock54" parent="Env" index="23" instance=ExtResource( 12 )]
+
+transform = Transform( 0.872407, 0, -0.488781, 0, 1, 0, 0.488781, 0, 0.872407, 89.5943, 2.13409, 41.5499 )
+
+[node name="rock43" parent="Env" index="24" instance=ExtResource( 12 )]
+
+transform = Transform( -0.968338, 0, 0.249644, 0, 1, 0, -0.249644, 0, -0.968338, 195.674, 2.13409, 23.4676 )
+
+[node name="rock46" parent="Env" index="25" instance=ExtResource( 12 )]
+
+transform = Transform( 0.99641, 0, 0.0846605, 0, 1, 0, -0.0846605, 0, 0.99641, 185.035, 2.13409, 0.183857 )
+
+[node name="rock20" parent="Env" index="26" instance=ExtResource( 12 )]
+
+transform = Transform( -0.968338, 0, 0.249644, 0, 1, 0, -0.249644, 0, -0.968338, 144.565, 2.13409, 2.66051 )
+
+[node name="rock44" parent="Env" index="27" instance=ExtResource( 12 )]
+
+transform = Transform( -0.968338, 0, 0.249644, 0, 1, 0, -0.249644, 0, -0.968338, 216.631, 2.13409, 2.66051 )
+
+[node name="rock45" parent="Env" index="28" instance=ExtResource( 12 )]
+
+transform = Transform( 0.99641, 0, 0.0846605, 0, 1, 0, -0.0846605, 0, 0.99641, 172.139, 2.13409, 26.751 )
+
+[node name="rock10" parent="Env" index="29" instance=ExtResource( 13 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.3569, -0.026206, 9.60367 )
+
+[node name="rock27" parent="Env" index="30" instance=ExtResource( 13 )]
+
+transform = Transform( 0.776609, 0.60002, 0.191976, -0.613862, 0.789241, 0.0165128, -0.141607, -0.13067, 0.981261, 81.2002, 1.90884, 13.6127 )
+
+[node name="rock13" parent="Env" index="31" instance=ExtResource( 6 )]
+
+transform = Transform( 0.0320643, 0.89433, -0.446256, -0.980164, 0.115505, 0.161053, 0.195579, 0.43224, 0.880294, 39.3773, -3.10059, -12.5812 )
+
+[node name="rock23" parent="Env" index="32" instance=ExtResource( 6 )]
+
+transform = Transform( 0.0320643, 0.89433, -0.446256, -0.980164, 0.115505, 0.161053, 0.195579, 0.43224, 0.880294, 68.607, -3.10059, 13.4323 )
+
+[node name="rock24" parent="Env" index="33" instance=ExtResource( 6 )]
+
+transform = Transform( -0.885455, 0.014156, 0.46451, -0.343688, 0.652842, -0.675037, -0.312807, -0.757361, -0.573198, 90.8276, 0.610945, 16.8649 )
+
+[node name="rock31" parent="Env" index="34" instance=ExtResource( 6 )]
+
+transform = Transform( -0.885455, 0.014156, 0.46451, 0.160366, 0.947445, 0.27682, -0.436179, 0.319602, -0.841191, 258.22, 0.435621, -7.71286 )
+
+[node name="rock51" parent="Env" index="35" instance=ExtResource( 6 )]
+
+transform = Transform( -0.107449, 0.98171, -0.157161, 0.891337, 0.025093, -0.452647, -0.440425, -0.18872, -0.87773, 243.918, 0.435623, -6.4704 )
+
+[node name="rock32" parent="Env" index="36" instance=ExtResource( 6 )]
+
+transform = Transform( -0.897502, -0.126654, 0.422434, -0.440738, 0.291402, -0.84902, -0.0155657, -0.948179, -0.317355, 259.93, 5.5109, 15.5609 )
+
+[node name="rock33" parent="Env" index="37" instance=ExtResource( 6 )]
+
+transform = Transform( -0.897502, -0.126654, 0.422434, 0.00662734, -0.961638, -0.27424, 0.440962, -0.243331, 0.863911, 167.402, 4.96443, 30.3877 )
+
+[node name="rock14" parent="Env" index="38" instance=ExtResource( 6 )]
+
+transform = Transform( -0.164957, -0.984108, 0.0657244, -0.972168, 0.173473, 0.157472, -0.166371, -0.037919, -0.985334, 23.4391, -3.10059, -12.0996 )
+
+[node name="rock12" parent="Env" index="39" instance=ExtResource( 14 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.6424, 0.43118, -9.66566 )
+
+[node name="rock28" parent="Env" index="40" instance=ExtResource( 14 )]
+
+transform = Transform( 1, 0, 0, 0, 0.927613, -0.373542, 0, 0.373542, 0.927613, 69.1881, 2.4421, 10.6355 )
+
+[node name="rock30" parent="Env" index="41" instance=ExtResource( 14 )]
+
+transform = Transform( -0.602147, -0.29823, -0.740593, 0, 0.927613, -0.373542, 0.798385, -0.224927, -0.558559, 133.515, 8.39315, 1.05982 )
+
+[node name="rock52" parent="Env" index="42" instance=ExtResource( 14 )]
+
+transform = Transform( -0.61592, 0.048919, -0.786289, -0.78764, -0.0176094, 0.615883, 0.0162822, 0.998647, 0.0493762, 110.114, 2.30409, -2.67607 )
+
+[node name="rock38" parent="Env" index="43" instance=ExtResource( 14 )]
+
+transform = Transform( -0.602147, -0.29823, -0.740593, 0, 0.927613, -0.373542, 0.798385, -0.224927, -0.558559, 162.376, 4.46521, 25.5529 )
+
+[node name="rock11" parent="Env" index="44" instance=ExtResource( 13 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.995, 2.92744, -9.33135 )
+
+[node name="rock15" parent="Env" index="45" instance=ExtResource( 15 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04601, -0.567751, 11.4878 )
+
+[node name="rock16" parent="Env" index="46" instance=ExtResource( 15 )]
+
+transform = Transform( 0.98731, 0, 0.158806, 0, 1, 0, -0.158806, 0, 0.98731, -1.83464, -0.567751, -10.8434 )
+
+[node name="rock41" parent="Env" index="47" instance=ExtResource( 15 )]
+
+transform = Transform( 0.999983, 0, 0.00587708, 0, 1, 0, -0.00587708, 0, 0.999983, 174.265, -0.567751, 2.88981 )
+
+[node name="rock42" parent="Env" index="48" instance=ExtResource( 15 )]
+
+transform = Transform( 0.803524, -0.595254, 0.00472245, 0.595244, 0.803538, 0.00349835, -0.00587708, 0, 0.999983, 184.942, -5.24695, 2.88981 )
+
+[node name="rock18" parent="Env" index="49" instance=ExtResource( 16 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1161, 3.54862, -10.544 )
+
+[node name="rock40" parent="Env" index="50" instance=ExtResource( 16 )]
+
+transform = Transform( 0.988226, 0, -0.153001, 0, 1, 0, 0.153001, 0, 0.988226, 188.994, 3.54862, 5.47316 )
+
+[node name="rock17" parent="Env" index="51" instance=ExtResource( 12 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5083, 5.79867, -21.1955 )
+
+[node name="rock39" parent="Env" index="52" instance=ExtResource( 12 )]
+
+transform = Transform( 0.988226, 0, -0.153001, 0, 1, 0, 0.153001, 0, 0.988226, 192.987, 5.79867, -4.68693 )
+
+[node name="rock47" parent="Env" index="53" instance=ExtResource( 12 )]
+
+transform = Transform( -0.927487, 0, -0.373855, 0, 1, 0, 0.373855, 0, -0.927487, 238.759, 5.79867, -6.98469 )
+
+[node name="rock48" parent="Env" index="54" instance=ExtResource( 12 )]
+
+transform = Transform( -0.983494, 0, -0.180939, 0, 1, 0, 0.180939, 0, -0.983494, 222.921, 5.79867, 25.391 )
+
+[node name="rock49" parent="Env" index="55" instance=ExtResource( 12 )]
+
+transform = Transform( 0.908397, 0, 0.418108, 0, 1, 0, -0.418108, 0, 0.908397, 237.968, 5.79867, 22.8738 )
+
+[node name="rock50" parent="Env" index="56" instance=ExtResource( 12 )]
+
+transform = Transform( 0.908397, 0, 0.418108, 0, 1, 0, -0.418108, 0, 0.908397, 254.839, -0.241943, 16.8376 )
+
+[node name="Present" parent="." index="29" instance=ExtResource( 17 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 102.234, 1.9642, 24.1212 )
 collision_mask = 1
-friction = 1.0
-bounce = 0.0
-constant_linear_velocity = Vector3( 0, 0, 0 )
-constant_angular_velocity = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="MeshInstance15/StaticBody"]
+[node name="Present2" parent="." index="30" instance=ExtResource( 17 )]
 
-shape = SubResource( 3 )
-disabled = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.829, 2.24241, 17.516 )
+collision_mask = 1
+
+[node name="Road" parent="." index="31" instance=ExtResource( 18 )]
+
+transform = Transform( -7.20055e-008, 0, 8.23647, 0, 1, 0, -2, 0, -4.37114e-007, 43.1554, 0.0884933, 1.60599 )
+material_override = SubResource( 7 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="Road8" parent="." index="32" instance=ExtResource( 18 )]
+
+transform = Transform( -4.4018e-008, 0.0909307, 5.03507, 4.01924e-009, 0.995857, -0.459747, -2, 0, -4.37114e-007, -6.70938, 1.61231, 1.60599 )
+material_override = SubResource( 17 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="Road9" parent="." index="33" instance=ExtResource( 18 )]
+
+transform = Transform( -4.28282e-008, 0.247294, 4.89898, 1.09307e-008, 0.96894, -1.25032, -2, 0, -4.37114e-007, -18.7573, 1.46759, 1.60599 )
+material_override = SubResource( 18 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="Road2" parent="." index="34" instance=ExtResource( 18 )]
+
+transform = Transform( -0.312684, 0.0508987, 4.38188, -0.00466316, -0.998687, 0.22732, 1.96722, 0.00572288, 0.697026, 93.2315, 1.01072, 4.29762 )
+material_override = SubResource( 8 )
+
+[node name="Road7" parent="." index="35" instance=ExtResource( 18 )]
+
+transform = Transform( -0.410328, 0.190699, -4.26416, -0.105831, -0.98156, -0.81579, -1.94633, 0.0131688, 0.943336, 242.918, 4.96827, 7.98885 )
+material_override = SubResource( 23 )
+
+[node name="Road3" parent="." index="36" instance=ExtResource( 18 )]
+
+transform = Transform( 0.195452, -0.022567, -4.42022, 0.0201819, -0.999668, 0.105179, -1.98221, -0.0124033, -0.434776, 157.79, 1.2466, 19.2332 )
+material_override = SubResource( 10 )
+
+[node name="Road5" parent="." index="37" instance=ExtResource( 18 )]
+
+transform = Transform( 0.538392, 0.0255318, 4.27593, 0.0201819, -0.999668, 0.105179, 1.91768, 0.00335251, -1.20158, 177.346, 1.2466, 17.5398 )
+material_override = SubResource( 11 )
+
+[node name="Road4" parent="." index="38" instance=ExtResource( 18 )]
+
+transform = Transform( 0.610315, -0.000433071, -4.22912, 0.0209628, -0.999937, 0.0170705, -1.89601, -0.011195, -1.36114, 126.469, 1.77117, 12.4661 )
+material_override = SubResource( 12 )
+
+[node name="Road10" parent="." index="39" instance=ExtResource( 18 )]
+
+transform = Transform( -0.709587, -0.00733952, -4.15121, -0.0192878, -0.999886, 0.0512957, -1.86115, 0.0131604, 1.58217, 109.986, 1.69303, 23.0102 )
+material_override = SubResource( 19 )
+
+[node name="Road11" parent="." index="40" instance=ExtResource( 18 )]
+
+transform = Transform( 1.68132, -0.00121267, -2.3824, -0.0682994, -0.998073, -0.229755, -1.06597, 0.0620365, -3.74297, 55.4027, 0.905003, 22.2129 )
+material_override = SubResource( 20 )
+
+[node name="Road12" parent="." index="41" instance=ExtResource( 18 )]
+
+transform = Transform( 0.459479, 0.004826, -4.32293, -0.14218, -0.997209, -0.0971519, -1.93299, 0.0744963, -1.02043, 76.1161, 2.12565, 39.646 )
+material_override = SubResource( 21 )
+
+[node name="Road13" parent="." index="42" instance=ExtResource( 18 )]
+
+transform = Transform( -0.434622, 0.013786, -4.33532, -0.132147, -0.997796, 0.00327605, -1.93944, 0.0648974, 0.97131, 76.467, 1.82242, 33.1946 )
+material_override = SubResource( 24 )
+
+[node name="Road6" parent="." index="43" instance=ExtResource( 18 )]
+
+transform = Transform( 0.120571, 0.0044725, 4.4346, 0.0209628, -0.999937, 0.0170705, 1.98816, 0.0102719, -0.269115, 208.984, 1.77117, 12.46 )
+material_override = SubResource( 13 )
+
+[node name="Spatial" type="Spatial" parent="." index="44"]
+
+[node name="Particles" parent="Spatial" index="0" instance=ExtResource( 20 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.7177, 28.6217, 19.4936 )
+process_material = SubResource( 14 )
+draw_pass_1 = SubResource( 16 )
+
+[node name="Particles13" parent="Spatial" index="1" instance=ExtResource( 20 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4606, 28.6217, 19.4936 )
+process_material = SubResource( 14 )
+draw_pass_1 = SubResource( 16 )
+
+[node name="Particles14" parent="Spatial" index="2" instance=ExtResource( 20 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.1728, 28.6217, 19.4936 )
+process_material = SubResource( 14 )
+draw_pass_1 = SubResource( 16 )
+
+[node name="Particles2" parent="Spatial" index="3" instance=ExtResource( 20 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3481, 28.6217, 19.4936 )
+
+[node name="Particles3" parent="Spatial" index="4" instance=ExtResource( 20 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93886, 28.6217, 19.4936 )
+
+[node name="Particles4" parent="Spatial" index="5" instance=ExtResource( 20 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.68373, 28.6217, 19.4936 )
+
+[node name="Particles5" parent="Spatial" index="6" instance=ExtResource( 20 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 67.1584, 28.6217, 19.4936 )
+
+[node name="Particles6" parent="Spatial" index="7" instance=ExtResource( 20 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 93.9044, 28.6217, 19.4936 )
+
+[node name="Particles7" parent="Spatial" index="8" instance=ExtResource( 20 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.695, 28.6217, 19.4936 )
+
+[node name="Particles8" parent="Spatial" index="9" instance=ExtResource( 20 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 146.829, 28.6217, 19.4936 )
+
+[node name="Particles9" parent="Spatial" index="10" instance=ExtResource( 20 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 174.688, 28.6217, 19.4936 )
+
+[node name="Particles10" parent="Spatial" index="11" instance=ExtResource( 20 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 202.14, 28.6217, 19.4936 )
+
+[node name="Particles11" parent="Spatial" index="12" instance=ExtResource( 20 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 232.764, 28.6217, 19.4936 )
+
+[node name="Particles12" parent="Spatial" index="13" instance=ExtResource( 20 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 264.307, 28.6217, 19.4936 )
+
+[node name="Snowman" type="Area" parent="." index="45" instance=ExtResource( 3 )]
+
+transform = Transform( -2.89824, 0.190654, -0.750917, 0.18456, 2.99394, 0.0478185, 0.752438, 0, -2.90411, -53.3326, 11.171, 3.1705 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 2
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+script = ExtResource( 22 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[connection signal="body_entered" from="Snowman" to="Snowman" method="_on_Snowman_body_entered"]
 
 

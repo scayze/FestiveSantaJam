@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Vehicle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/StaticCube.tscn" type="PackedScene" id=2]
@@ -20,7 +20,6 @@
 [ext_resource path="res://Tiles/Road.tscn" type="PackedScene" id=18]
 [ext_resource path="res://vfx/Particles.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Data/Textures/snowflake.png" type="Texture" id=20]
-[ext_resource path="res://Scripts/Particles.gd" type="Script" id=21]
 
 [sub_resource type="GIProbeData" id=1]
 
@@ -633,6 +632,7 @@ emission_enabled = true
 emission = Color( 0.75, 0.75, 0.75, 1 )
 emission_energy = 1.0
 emission_operator = 0
+emission_on_uv2 = false
 normal_enabled = false
 rim_enabled = false
 clearcoat_enabled = false
@@ -661,12 +661,12 @@ _sections_unfolded = [ "Depth", "Distance Fade", "Flags", "Metallic", "Parameter
 material = SubResource( 15 )
 size = Vector2( 0.69, 0.69 )
 
-[node name="002" type="Spatial"]
+[node name="002" type="Spatial" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.328631, -0.54722, -0.476068 )
 _sections_unfolded = [ "Geometry" ]
 
-[node name="GIProbe" type="GIProbe" parent="."]
+[node name="GIProbe" type="GIProbe" parent="." index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 76.8936, 4.09584, -1.10835 )
 layers = 1
@@ -681,183 +681,183 @@ interior = false
 compress = false
 data = SubResource( 1 )
 
-[node name="Vehicle" parent="." instance=ExtResource( 1 )]
+[node name="Vehicle" parent="." index="1" instance=ExtResource( 1 )]
 
 transform = Transform( -3.95826e-008, 0.424252, 0.905544, 1.85446e-008, 0.905544, -0.424252, -1, 0, -4.37114e-008, -3.47646, 5.36473, 0.2984 )
 _sections_unfolded = [ "Collision", "Mass", "Motion", "Transform" ]
 STEER_SPEED = 2.0
 SPEED_LIMIT = 45
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2"]
 
 environment = SubResource( 3 )
 
-[node name="MeshInstance5" parent="." instance=ExtResource( 2 )]
+[node name="MeshInstance5" parent="." index="3" instance=ExtResource( 2 )]
 
 transform = Transform( 0.704975, 0.399586, 7.2996, 0.626221, 0.910403, -3.25, -7.94423, 0.107225, 0.391582, -4.69911, 4.22233, -0.440957 )
 material/0 = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="MeshInstance6" parent="." instance=ExtResource( 2 )]
+[node name="MeshInstance6" parent="." index="4" instance=ExtResource( 2 )]
 
 transform = Transform( 0.553393, 0.19392, 7.8286, 0.410039, 0.978939, -1.58092, -7.97029, 0.0638278, 0.462223, 6.84388, 0.651724, 0.269785 )
 material/0 = SubResource( 4 )
 _sections_unfolded = [ "Transform", "material" ]
 
-[node name="MeshInstance7" parent="." instance=ExtResource( 2 )]
+[node name="MeshInstance7" parent="." index="5" instance=ExtResource( 2 )]
 
 transform = Transform( 0.482266, 0.0380488, 7.97965, 0.243631, 0.998738, -0.319507, -7.98173, 0.0327851, 0.472388, 13.1412, -0.379166, 1.35734 )
 material/0 = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Area" parent="." instance=ExtResource( 4 )]
+[node name="Area" parent="." index="6" instance=ExtResource( 4 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.2502, 1.84589, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Area"]
+[node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
 
 shape = SubResource( 5 )
 disabled = false
 
-[node name="Snowman" parent="Area" instance=ExtResource( 5 )]
+[node name="Snowman" parent="Area" index="1" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.328, -1.14551, 1.37481 )
 
-[node name="Snowman2" parent="Area" instance=ExtResource( 5 )]
+[node name="Snowman2" parent="Area" index="2" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1397, -1.14551, 5.82617 )
 
-[node name="Snowman3" parent="Area" instance=ExtResource( 5 )]
+[node name="Snowman3" parent="Area" index="3" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3422, -1.14551, -1.54939 )
 
-[node name="SnowBallTrap" parent="Area" instance=ExtResource( 6 )]
+[node name="SnowBallTrap" parent="Area" index="4" instance=ExtResource( 6 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.8058, 2.19466, -23.3772 )
 mode = 0
 
-[node name="SnowBallTrap2" parent="Area" instance=ExtResource( 6 )]
+[node name="SnowBallTrap2" parent="Area" index="5" instance=ExtResource( 6 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.6481, 0.457627, 2.14457 )
 
-[node name="SnowBallTrap3" parent="Area" instance=ExtResource( 6 )]
+[node name="SnowBallTrap3" parent="Area" index="6" instance=ExtResource( 6 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2983, 0.757522, 5.10123 )
 
-[node name="SnowBallTrap4" parent="Area" instance=ExtResource( 6 )]
+[node name="SnowBallTrap4" parent="Area" index="7" instance=ExtResource( 6 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2983, 0.757522, 8.41176 )
 
-[node name="Area2" parent="." instance=ExtResource( 4 )]
+[node name="Area2" parent="." index="7" instance=ExtResource( 4 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 173.417, 1.84589, 14.372 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Area2"]
+[node name="CollisionShape" type="CollisionShape" parent="Area2" index="0"]
 
 shape = SubResource( 5 )
 disabled = false
 
-[node name="Snowman" parent="Area2" instance=ExtResource( 5 )]
+[node name="Snowman" parent="Area2" index="1" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.328, 0.529512, -2.89397 )
 
-[node name="Snowman2" parent="Area2" instance=ExtResource( 5 )]
+[node name="Snowman2" parent="Area2" index="2" instance=ExtResource( 5 )]
 
 transform = Transform( 0.673746, 0, 0.738963, 0, 1, 0, -0.738963, 0, 0.673746, 35.031, 5.75769, -7.99823 )
 
-[node name="Snowman3" parent="Area2" instance=ExtResource( 5 )]
+[node name="Snowman3" parent="Area2" index="3" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.3422, 0.766055, 3.10903 )
 
-[node name="SnowBallTrap" parent="Area2" instance=ExtResource( 6 )]
+[node name="SnowBallTrap" parent="Area2" index="4" instance=ExtResource( 6 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52.5591, 2.19466, -4.60338 )
 mode = 0
 
-[node name="SnowBallTrap2" parent="Area2" instance=ExtResource( 6 )]
+[node name="SnowBallTrap2" parent="Area2" index="5" instance=ExtResource( 6 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.5372, 0.987199, -3.12308 )
 
-[node name="SnowBallTrap3" parent="Area2" instance=ExtResource( 6 )]
+[node name="SnowBallTrap3" parent="Area2" index="6" instance=ExtResource( 6 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2983, 1.479, 1.34487 )
 
-[node name="SnowBallTrap4" parent="Area2" instance=ExtResource( 6 )]
+[node name="SnowBallTrap4" parent="Area2" index="7" instance=ExtResource( 6 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 68.934, 0.757522, -3.74087 )
 
-[node name="FinishTrigger" parent="." instance=ExtResource( 7 )]
+[node name="FinishTrigger" parent="." index="8" instance=ExtResource( 7 )]
 
 editor/display_folded = true
 transform = Transform( 0.988245, 0, 0.15288, 0, 1, 0, -0.15288, 0, 0.988245, 257.877, 3.44944, 5.03314 )
 
-[node name="CollisionShape" type="CollisionShape" parent="FinishTrigger"]
+[node name="CollisionShape" type="CollisionShape" parent="FinishTrigger" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.633548, 0.799002 )
 shape = SubResource( 6 )
 disabled = false
 
-[node name="MeshInstance2" parent="." instance=ExtResource( 8 )]
+[node name="MeshInstance2" parent="." index="9" instance=ExtResource( 8 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2205, 3.6744, 4.96751 )
 gravity_scale = 0.75
 
-[node name="MeshInstance3" parent="." instance=ExtResource( 8 )]
+[node name="MeshInstance3" parent="." index="10" instance=ExtResource( 8 )]
 
 transform = Transform( 0.918439, 0, -0.395562, 0, 1, 0, 0.395562, 0, 0.918439, 133.468, 3.46556, 15.5982 )
 gravity_scale = 0.75
 
-[node name="MeshInstance11" parent="." instance=ExtResource( 8 )]
+[node name="MeshInstance11" parent="." index="11" instance=ExtResource( 8 )]
 
 transform = Transform( 0.918439, 0, -0.395562, 0, 1, 0, 0.395562, 0, 0.918439, 131.301, 4.12729, 17.5602 )
 gravity_scale = 0.75
 
-[node name="MeshInstance12" parent="." instance=ExtResource( 8 )]
+[node name="MeshInstance12" parent="." index="12" instance=ExtResource( 8 )]
 
 transform = Transform( 0.918439, 0, -0.395562, 0, 1, 0, 0.395562, 0, 0.918439, 136.909, 4.12729, 17.5602 )
 gravity_scale = 0.75
 
-[node name="MeshInstance13" parent="." instance=ExtResource( 8 )]
+[node name="MeshInstance13" parent="." index="13" instance=ExtResource( 8 )]
 
 transform = Transform( 0.918439, 0, -0.395562, 0, 1, 0, 0.395562, 0, 0.918439, 137.539, 4.28799, 11.358 )
 gravity_scale = 0.75
 
-[node name="MeshInstance16" parent="." instance=ExtResource( 8 )]
+[node name="MeshInstance16" parent="." index="14" instance=ExtResource( 8 )]
 
 transform = Transform( 0.918439, 0, -0.395562, 0, 1, 0, 0.395562, 0, 0.918439, 36.9611, 1.6111, -0.480446 )
 gravity_scale = 0.75
 
-[node name="MeshInstance4" parent="." instance=ExtResource( 8 )]
+[node name="MeshInstance4" parent="." index="15" instance=ExtResource( 8 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9111, 1.92761, 3.59255 )
 gravity_scale = 0.75
 
-[node name="MeshInstance9" parent="." instance=ExtResource( 8 )]
+[node name="MeshInstance9" parent="." index="16" instance=ExtResource( 8 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 134.332, 3.57208, 9.96341 )
 gravity_scale = 0.75
 
-[node name="MeshInstance14" parent="." instance=ExtResource( 8 )]
+[node name="MeshInstance14" parent="." index="17" instance=ExtResource( 8 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.7538, 1.73596, -1.87502 )
 gravity_scale = 0.75
 
-[node name="MeshInstance8" parent="." instance=ExtResource( 8 )]
+[node name="MeshInstance8" parent="." index="18" instance=ExtResource( 8 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2212, 1.53833, 4.97956 )
 gravity_scale = 0.75
 
-[node name="MeshInstance10" parent="." instance=ExtResource( 8 )]
+[node name="MeshInstance10" parent="." index="19" instance=ExtResource( 8 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 134.778, 3.56178, 12.7343 )
 gravity_scale = 0.75
 
-[node name="MeshInstance15" parent="." instance=ExtResource( 8 )]
+[node name="MeshInstance15" parent="." index="20" instance=ExtResource( 8 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.2, 1.92783, 0.895828 )
 gravity_scale = 0.75
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="21"]
 
 transform = Transform( 1, 0, 0, 0, -0.756745, 0.65371, 0, -0.65371, -0.756745, 23.2788, 17.7411, -11.5009 )
 layers = 1
@@ -866,6 +866,7 @@ light_energy = 1.0
 light_indirect_energy = 1.0
 light_negative = false
 light_specular = 0.5
+light_bake_mode = 1
 light_cull_mask = -1
 shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 1 )
@@ -884,334 +885,309 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Light", "Shadow" ]
 
-[node name="Env" type="Node" parent="."]
+[node name="Env" type="Node" parent="." index="22"]
 
-[node name="rock07" parent="Env" instance=ExtResource( 9 )]
+[node name="rock07" parent="Env" index="0" instance=ExtResource( 9 )]
 
 transform = Transform( 0.0165407, -0.0060727, 0.999845, -0.00796137, 0.999949, 0.00620504, -0.999832, -0.00806277, 0.0164916, 37.4392, 0.571782, 13.9794 )
 
-[node name="rock08" parent="Env" instance=ExtResource( 9 )]
+[node name="rock08" parent="Env" index="1" instance=ExtResource( 9 )]
 
 transform = Transform( -0.0351616, 0, -0.999382, 0, 1, 0, 0.999382, 0, -0.0351616, 19.3046, 0.571782, 13.9794 )
 
-[node name="rock09" parent="Env" instance=ExtResource( 9 )]
+[node name="rock09" parent="Env" index="2" instance=ExtResource( 9 )]
 
 transform = Transform( -0.247307, 0, -0.968937, 0, 1, 0, 0.968937, 0, -0.247307, 27.954, -3.29669, 12.469 )
 
-[node name="rock05" parent="Env" instance=ExtResource( 10 )]
+[node name="rock05" parent="Env" index="3" instance=ExtResource( 10 )]
 
 transform = Transform( 0.614734, 0, 0.788734, 0, 1, 0, -0.788734, 0, 0.614734, 67.8842, 1.0766, -10.8189 )
 
-[node name="rock21" parent="Env" instance=ExtResource( 10 )]
+[node name="rock21" parent="Env" index="4" instance=ExtResource( 10 )]
 
 transform = Transform( 0.406979, 0, -0.913437, 0, 1, 0, 0.913437, 0, 0.406979, 99.799, 1.0766, -10.8189 )
 
-[node name="rock34" parent="Env" instance=ExtResource( 10 )]
+[node name="rock34" parent="Env" index="5" instance=ExtResource( 10 )]
 
 transform = Transform( -0.832886, 0, -0.553444, 0, 1, 0, 0.553444, 0, -0.832886, 137.204, 1.0766, 27.4592 )
 
-[node name="rock35" parent="Env" instance=ExtResource( 10 )]
+[node name="rock35" parent="Env" index="6" instance=ExtResource( 10 )]
 
 transform = Transform( 0.600413, 0, 0.79969, 0, 1, 0, -0.79969, 0, 0.600413, 150.268, 1.0766, 27.4592 )
 
-[node name="rock36" parent="Env" instance=ExtResource( 10 )]
+[node name="rock36" parent="Env" index="7" instance=ExtResource( 10 )]
 
 transform = Transform( 0.600413, 0, 0.79969, -0.776548, 0.238829, 0.583038, -0.190989, -0.971062, 0.143396, 159.113, 1.0766, 31.7577 )
 
-[node name="rock37" parent="Env" instance=ExtResource( 10 )]
+[node name="rock37" parent="Env" index="8" instance=ExtResource( 10 )]
 
 transform = Transform( 0.712125, 0.0785707, 0.697642, 0.59671, 0.455813, -0.660433, -0.369885, 0.886601, 0.277712, 159.113, -0.840622, 5.20221 )
 
-[node name="rock22" parent="Env" instance=ExtResource( 10 )]
+[node name="rock22" parent="Env" index="9" instance=ExtResource( 10 )]
 
 transform = Transform( -0.762381, 0.141326, -0.631507, 0.168188, 0.985599, 0.0175255, 0.62489, -0.0928506, -0.775171, 98.9452, 1.27976, 16.5411 )
 
-[node name="rock06" parent="Env" instance=ExtResource( 10 )]
+[node name="rock06" parent="Env" index="10" instance=ExtResource( 10 )]
 
 transform = Transform( -0.777495, 0, -0.62889, 0, 1, 0, 0.62889, 0, -0.777495, 54.1044, 1.0766, -9.39118 )
 
-[node name="rock04" parent="Env" instance=ExtResource( 11 )]
+[node name="rock04" parent="Env" index="11" instance=ExtResource( 11 )]
 
 transform = Transform( 0.614734, 0, 0.788734, 0, 1, 0, -0.788734, 0, 0.614734, 32.0605, -0.160749, -10.0935 )
 
-[node name="rock01" parent="Env" instance=ExtResource( 12 )]
+[node name="rock01" parent="Env" index="12" instance=ExtResource( 12 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.57386, 1.28394, 12.8925 )
 
-[node name="rock02" parent="Env" instance=ExtResource( 12 )]
+[node name="rock02" parent="Env" index="13" instance=ExtResource( 12 )]
 
 transform = Transform( -0.994875, 0, -0.101114, 0, 1, 0, 0.101114, 0, -0.994875, 53.26, 2.34373, 13.2621 )
 
-[node name="rock25" parent="Env" instance=ExtResource( 12 )]
+[node name="rock25" parent="Env" index="14" instance=ExtResource( 12 )]
 
 transform = Transform( -0.979546, 0, 0.20122, 0, 1, 0, -0.20122, 0, -0.979546, 82.9462, -8.20483, 13.2621 )
 
-[node name="rock26" parent="Env" instance=ExtResource( 12 )]
+[node name="rock26" parent="Env" index="15" instance=ExtResource( 12 )]
 
 transform = Transform( 0.997146, 0, 0.0755045, 0, 1, 0, -0.0755045, 0, 0.997146, 69.4846, 3.53684, 22.2854 )
 
-[node name="rock03" parent="Env" instance=ExtResource( 12 )]
+[node name="rock03" parent="Env" index="16" instance=ExtResource( 12 )]
 
 transform = Transform( -0.994875, 0, -0.101114, 0, 1, 0, 0.101114, 0, -0.994875, 90.5991, 2.34373, -12.4774 )
 
-[node name="rock29" parent="Env" instance=ExtResource( 12 )]
+[node name="rock29" parent="Env" index="17" instance=ExtResource( 12 )]
 
 transform = Transform( 0.926826, 0, -0.375492, 0, 1, 0, 0.375492, 0, 0.926826, 113.004, 1.54136, -6.49473 )
 
-[node name="rock19" parent="Env" instance=ExtResource( 12 )]
+[node name="rock19" parent="Env" index="18" instance=ExtResource( 12 )]
 
 transform = Transform( -0.968338, 0, 0.249644, 0, 1, 0, -0.249644, 0, -0.968338, 123.608, 2.13409, 23.4676 )
 
-[node name="rock43" parent="Env" instance=ExtResource( 12 )]
+[node name="rock43" parent="Env" index="19" instance=ExtResource( 12 )]
 
 transform = Transform( -0.968338, 0, 0.249644, 0, 1, 0, -0.249644, 0, -0.968338, 195.674, 2.13409, 23.4676 )
 
-[node name="rock46" parent="Env" instance=ExtResource( 12 )]
+[node name="rock46" parent="Env" index="20" instance=ExtResource( 12 )]
 
 transform = Transform( 0.99641, 0, 0.0846605, 0, 1, 0, -0.0846605, 0, 0.99641, 185.035, 2.13409, 0.183857 )
 
-[node name="rock20" parent="Env" instance=ExtResource( 12 )]
+[node name="rock20" parent="Env" index="21" instance=ExtResource( 12 )]
 
 transform = Transform( -0.968338, 0, 0.249644, 0, 1, 0, -0.249644, 0, -0.968338, 144.565, 2.13409, 2.66051 )
 
-[node name="rock44" parent="Env" instance=ExtResource( 12 )]
+[node name="rock44" parent="Env" index="22" instance=ExtResource( 12 )]
 
 transform = Transform( -0.968338, 0, 0.249644, 0, 1, 0, -0.249644, 0, -0.968338, 216.631, 2.13409, 2.66051 )
 
-[node name="rock45" parent="Env" instance=ExtResource( 12 )]
+[node name="rock45" parent="Env" index="23" instance=ExtResource( 12 )]
 
 transform = Transform( 0.99641, 0, 0.0846605, 0, 1, 0, -0.0846605, 0, 0.99641, 172.139, 2.13409, 26.751 )
 
-[node name="rock10" parent="Env" instance=ExtResource( 13 )]
+[node name="rock10" parent="Env" index="24" instance=ExtResource( 13 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.3569, -0.026206, 9.60367 )
 
-[node name="rock27" parent="Env" instance=ExtResource( 13 )]
+[node name="rock27" parent="Env" index="25" instance=ExtResource( 13 )]
 
 transform = Transform( 0.776609, 0.60002, 0.191976, -0.613862, 0.789241, 0.0165128, -0.141607, -0.13067, 0.981261, 81.2002, 1.90884, 13.6127 )
 
-[node name="rock13" parent="Env" instance=ExtResource( 11 )]
+[node name="rock13" parent="Env" index="26" instance=ExtResource( 11 )]
 
 transform = Transform( 0.0320643, 0.89433, -0.446256, -0.980164, 0.115505, 0.161053, 0.195579, 0.43224, 0.880294, 39.3773, -3.10059, -12.5812 )
 
-[node name="rock23" parent="Env" instance=ExtResource( 11 )]
+[node name="rock23" parent="Env" index="27" instance=ExtResource( 11 )]
 
 transform = Transform( 0.0320643, 0.89433, -0.446256, -0.980164, 0.115505, 0.161053, 0.195579, 0.43224, 0.880294, 68.607, -3.10059, 13.4323 )
 
-[node name="rock24" parent="Env" instance=ExtResource( 11 )]
+[node name="rock24" parent="Env" index="28" instance=ExtResource( 11 )]
 
 transform = Transform( -0.885455, 0.014156, 0.46451, -0.343688, 0.652842, -0.675037, -0.312807, -0.757361, -0.573198, 90.8276, 0.610945, 16.8649 )
 
-[node name="rock31" parent="Env" instance=ExtResource( 11 )]
+[node name="rock31" parent="Env" index="29" instance=ExtResource( 11 )]
 
 transform = Transform( -0.885455, 0.014156, 0.46451, 0.160366, 0.947445, 0.27682, -0.436179, 0.319602, -0.841191, 258.22, 0.435621, -7.71286 )
 
-[node name="rock51" parent="Env" instance=ExtResource( 11 )]
+[node name="rock51" parent="Env" index="30" instance=ExtResource( 11 )]
 
 transform = Transform( -0.107449, 0.98171, -0.157161, 0.891337, 0.025093, -0.452647, -0.440425, -0.18872, -0.87773, 243.918, 0.435623, -6.4704 )
 
-[node name="rock32" parent="Env" instance=ExtResource( 11 )]
+[node name="rock32" parent="Env" index="31" instance=ExtResource( 11 )]
 
 transform = Transform( -0.897502, -0.126654, 0.422434, -0.440738, 0.291402, -0.84902, -0.0155657, -0.948179, -0.317355, 259.93, 5.5109, 15.5609 )
 
-[node name="rock33" parent="Env" instance=ExtResource( 11 )]
+[node name="rock33" parent="Env" index="32" instance=ExtResource( 11 )]
 
 transform = Transform( -0.897502, -0.126654, 0.422434, 0.00662734, -0.961638, -0.27424, 0.440962, -0.243331, 0.863911, 167.402, 4.96443, 30.3877 )
 
-[node name="rock14" parent="Env" instance=ExtResource( 11 )]
+[node name="rock14" parent="Env" index="33" instance=ExtResource( 11 )]
 
 transform = Transform( -0.164957, -0.984108, 0.0657244, -0.972168, 0.173473, 0.157472, -0.166371, -0.037919, -0.985334, 23.4391, -3.10059, -12.0996 )
 
-[node name="rock12" parent="Env" instance=ExtResource( 14 )]
+[node name="rock12" parent="Env" index="34" instance=ExtResource( 14 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.6424, 0.43118, -9.66566 )
 
-[node name="rock28" parent="Env" instance=ExtResource( 14 )]
+[node name="rock28" parent="Env" index="35" instance=ExtResource( 14 )]
 
 transform = Transform( 1, 0, 0, 0, 0.927613, -0.373542, 0, 0.373542, 0.927613, 69.1881, 2.4421, 10.6355 )
 
-[node name="rock30" parent="Env" instance=ExtResource( 14 )]
+[node name="rock30" parent="Env" index="36" instance=ExtResource( 14 )]
 
 transform = Transform( -0.602147, -0.29823, -0.740593, 0, 0.927613, -0.373542, 0.798385, -0.224927, -0.558559, 133.515, 8.39315, 1.05982 )
 
-[node name="rock52" parent="Env" instance=ExtResource( 14 )]
+[node name="rock52" parent="Env" index="37" instance=ExtResource( 14 )]
 
 transform = Transform( -0.61592, 0.048919, -0.786289, -0.78764, -0.0176094, 0.615883, 0.0162822, 0.998647, 0.0493762, 110.114, 2.30409, -2.67607 )
 
-[node name="rock38" parent="Env" instance=ExtResource( 14 )]
+[node name="rock38" parent="Env" index="38" instance=ExtResource( 14 )]
 
 transform = Transform( -0.602147, -0.29823, -0.740593, 0, 0.927613, -0.373542, 0.798385, -0.224927, -0.558559, 162.376, 4.46521, 25.5529 )
 
-[node name="rock11" parent="Env" instance=ExtResource( 13 )]
+[node name="rock11" parent="Env" index="39" instance=ExtResource( 13 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.995, 2.92744, -9.33135 )
 
-[node name="rock15" parent="Env" instance=ExtResource( 15 )]
+[node name="rock15" parent="Env" index="40" instance=ExtResource( 15 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04601, -0.567751, 11.4878 )
 
-[node name="rock16" parent="Env" instance=ExtResource( 15 )]
+[node name="rock16" parent="Env" index="41" instance=ExtResource( 15 )]
 
 transform = Transform( 0.98731, 0, 0.158806, 0, 1, 0, -0.158806, 0, 0.98731, -1.83464, -0.567751, -10.8434 )
 
-[node name="rock41" parent="Env" instance=ExtResource( 15 )]
+[node name="rock41" parent="Env" index="42" instance=ExtResource( 15 )]
 
 transform = Transform( 0.999983, 0, 0.00587708, 0, 1, 0, -0.00587708, 0, 0.999983, 174.265, -0.567751, 2.88981 )
 
-[node name="rock42" parent="Env" instance=ExtResource( 15 )]
+[node name="rock42" parent="Env" index="43" instance=ExtResource( 15 )]
 
 transform = Transform( 0.803524, -0.595254, 0.00472245, 0.595244, 0.803538, 0.00349835, -0.00587708, 0, 0.999983, 184.942, -5.24695, 2.88981 )
 
-[node name="rock18" parent="Env" instance=ExtResource( 16 )]
+[node name="rock18" parent="Env" index="44" instance=ExtResource( 16 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1161, 3.54862, -10.544 )
 
-[node name="rock40" parent="Env" instance=ExtResource( 16 )]
+[node name="rock40" parent="Env" index="45" instance=ExtResource( 16 )]
 
 transform = Transform( 0.988226, 0, -0.153001, 0, 1, 0, 0.153001, 0, 0.988226, 188.994, 3.54862, 5.47316 )
 
-[node name="rock17" parent="Env" instance=ExtResource( 12 )]
+[node name="rock17" parent="Env" index="46" instance=ExtResource( 12 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5083, 5.79867, -21.1955 )
 
-[node name="rock39" parent="Env" instance=ExtResource( 12 )]
+[node name="rock39" parent="Env" index="47" instance=ExtResource( 12 )]
 
 transform = Transform( 0.988226, 0, -0.153001, 0, 1, 0, 0.153001, 0, 0.988226, 192.987, 5.79867, -4.68693 )
 
-[node name="rock47" parent="Env" instance=ExtResource( 12 )]
+[node name="rock47" parent="Env" index="48" instance=ExtResource( 12 )]
 
 transform = Transform( -0.927487, 0, -0.373855, 0, 1, 0, 0.373855, 0, -0.927487, 238.759, 5.79867, -6.98469 )
 
-[node name="rock48" parent="Env" instance=ExtResource( 12 )]
+[node name="rock48" parent="Env" index="49" instance=ExtResource( 12 )]
 
 transform = Transform( -0.983494, 0, -0.180939, 0, 1, 0, 0.180939, 0, -0.983494, 222.921, 5.79867, 25.391 )
 
-[node name="rock49" parent="Env" instance=ExtResource( 12 )]
+[node name="rock49" parent="Env" index="50" instance=ExtResource( 12 )]
 
 transform = Transform( 0.908397, 0, 0.418108, 0, 1, 0, -0.418108, 0, 0.908397, 237.968, 5.79867, 22.8738 )
 
-[node name="rock50" parent="Env" instance=ExtResource( 12 )]
+[node name="rock50" parent="Env" index="51" instance=ExtResource( 12 )]
 
 transform = Transform( 0.908397, 0, 0.418108, 0, 1, 0, -0.418108, 0, 0.908397, 254.839, -0.241943, 16.8376 )
 
-[node name="Present" parent="." instance=ExtResource( 17 )]
+[node name="Present" parent="." index="23" instance=ExtResource( 17 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 102.234, 1.9642, 8.62831 )
 collision_mask = 1
 
-[node name="Present2" parent="." instance=ExtResource( 17 )]
+[node name="Present2" parent="." index="24" instance=ExtResource( 17 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.829, 2.24241, 17.516 )
 collision_mask = 1
 
-[node name="Road" parent="." instance=ExtResource( 18 )]
+[node name="Road" parent="." index="25" instance=ExtResource( 18 )]
 
 transform = Transform( -7.20055e-008, 0, 8.23647, 0, 1, 0, -2, 0, -4.37114e-007, 43.1554, 0.0884933, 1.60599 )
 material_override = SubResource( 7 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
-[node name="Road2" parent="." instance=ExtResource( 18 )]
+[node name="Road2" parent="." index="26" instance=ExtResource( 18 )]
 
 transform = Transform( -0.312684, 0.0508987, 4.38188, -0.00466316, -0.998687, 0.22732, 1.96722, 0.00572288, 0.697026, 93.2315, 1.01072, 4.29762 )
 material_override = SubResource( 8 )
 
-[node name="Road7" parent="." instance=ExtResource( 18 )]
+[node name="Road7" parent="." index="27" instance=ExtResource( 18 )]
 
 transform = Transform( -0.423731, -0.0494976, -4.33554, -0.00466316, -0.998687, 0.22732, -1.94633, 0.0131688, 0.943336, 242.918, 1.01072, 7.98885 )
 material_override = SubResource( 9 )
 
-[node name="Road3" parent="." instance=ExtResource( 18 )]
+[node name="Road3" parent="." index="28" instance=ExtResource( 18 )]
 
 transform = Transform( 0.195452, -0.022567, -4.42022, 0.0201819, -0.999668, 0.105179, -1.98221, -0.0124033, -0.434776, 157.79, 1.2466, 19.2332 )
 material_override = SubResource( 10 )
 
-[node name="Road5" parent="." instance=ExtResource( 18 )]
+[node name="Road5" parent="." index="29" instance=ExtResource( 18 )]
 
 transform = Transform( 0.538392, 0.0255318, 4.27593, 0.0201819, -0.999668, 0.105179, 1.91768, 0.00335251, -1.20158, 177.346, 1.2466, 17.5398 )
 material_override = SubResource( 11 )
 
-[node name="Road4" parent="." instance=ExtResource( 18 )]
+[node name="Road4" parent="." index="30" instance=ExtResource( 18 )]
 
 transform = Transform( 0.610315, -0.000433071, -4.22912, 0.0209628, -0.999937, 0.0170705, -1.89601, -0.011195, -1.36114, 126.469, 1.77117, 12.4661 )
 material_override = SubResource( 12 )
 
-[node name="Road6" parent="." instance=ExtResource( 18 )]
+[node name="Road6" parent="." index="31" instance=ExtResource( 18 )]
 
 transform = Transform( 0.120571, 0.0044725, 4.4346, 0.0209628, -0.999937, 0.0170705, 1.98816, 0.0102719, -0.269115, 208.984, 1.77117, 12.46 )
 material_override = SubResource( 13 )
 
-[node name="Particles" type="Particles" parent="." instance=ExtResource( 19 )]
+[node name="Particles" parent="." index="32" instance=ExtResource( 19 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.7177, 28.6217, 19.4936 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-emitting = true
-amount = 256
-lifetime = 9.0
-one_shot = false
-preprocess = 12.0
-speed_scale = 1.0
-explosiveness = 0.0
-randomness = 0.0
-fixed_fps = 0
-fract_delta = true
-visibility_aabb = AABB( -16, -27.6835, -50.7295, 32, 55.367, 101.459 )
-local_coords = true
-draw_order = 0
 process_material = SubResource( 14 )
-draw_passes = 1
 draw_pass_1 = SubResource( 16 )
-script = ExtResource( 21 )
-_sections_unfolded = [ "Draw Passes", "Process Material", "Time", "Transform" ]
 
-[node name="Particles2" parent="." instance=ExtResource( 19 )]
+[node name="Particles2" parent="." index="33" instance=ExtResource( 19 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3481, 28.6217, 19.4936 )
 
-[node name="Particles3" parent="." instance=ExtResource( 19 )]
+[node name="Particles3" parent="." index="34" instance=ExtResource( 19 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93886, 28.6217, 19.4936 )
 
-[node name="Particles4" parent="." instance=ExtResource( 19 )]
+[node name="Particles4" parent="." index="35" instance=ExtResource( 19 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.68373, 28.6217, 19.4936 )
 
-[node name="Particles5" parent="." instance=ExtResource( 19 )]
+[node name="Particles5" parent="." index="36" instance=ExtResource( 19 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 67.1584, 28.6217, 19.4936 )
 
-[node name="Particles6" parent="." instance=ExtResource( 19 )]
+[node name="Particles6" parent="." index="37" instance=ExtResource( 19 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 93.9044, 28.6217, 19.4936 )
 
-[node name="Particles7" parent="." instance=ExtResource( 19 )]
+[node name="Particles7" parent="." index="38" instance=ExtResource( 19 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.695, 28.6217, 19.4936 )
 
-[node name="Particles8" parent="." instance=ExtResource( 19 )]
+[node name="Particles8" parent="." index="39" instance=ExtResource( 19 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 146.829, 28.6217, 19.4936 )
 
-[node name="Particles9" parent="." instance=ExtResource( 19 )]
+[node name="Particles9" parent="." index="40" instance=ExtResource( 19 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 174.688, 28.6217, 19.4936 )
 
-[node name="Particles10" parent="." instance=ExtResource( 19 )]
+[node name="Particles10" parent="." index="41" instance=ExtResource( 19 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 202.14, 28.6217, 19.4936 )
 
-[node name="Particles11" parent="." instance=ExtResource( 19 )]
+[node name="Particles11" parent="." index="42" instance=ExtResource( 19 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 232.764, 28.6217, 19.4936 )
 
-[node name="Particles12" parent="." instance=ExtResource( 19 )]
+[node name="Particles12" parent="." index="43" instance=ExtResource( 19 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 264.307, 28.6217, 19.4936 )
 

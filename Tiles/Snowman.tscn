@@ -4,7 +4,6 @@
 [ext_resource path="res://Mesh/snowman02.tres" type="ArrayMesh" id=2]
 [ext_resource path="res://Mesh/iceblocks_texture_sparkles.png" type="Texture" id=3]
 
-
 [sub_resource type="BoxShape" id=1]
 
 extents = Vector3( 0.629233, 1, 1 )
@@ -17,7 +16,7 @@ emission_shape = 0
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = false
-spread = 0.2
+spread = 45.0
 flatness = 0.0
 gravity = Vector3( 0, -9.8, 0 )
 initial_velocity = 15.0
@@ -158,7 +157,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0.001, 0.001, 0.001 ), Vector3( 0.25, 0.25, 0.25 ) ]
 }
 
-[node name="Snowman" type="Area"]
+[node name="Snowman" type="Area" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.983891, 0 )
 input_ray_pickable = false
@@ -184,12 +183,12 @@ reverb_bus_uniformity = 0.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionShape" type="CollisionShape" parent="." index="0"]
 
 shape = SubResource( 1 )
 disabled = false
 
-[node name="Mesh" type="MeshInstance" parent="."]
+[node name="Mesh" type="MeshInstance" parent="." index="1"]
 
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
 layers = 1
@@ -206,7 +205,7 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]
 
-[node name="Particles" type="Particles" parent="."]
+[node name="Particles" type="Particles" parent="." index="2"]
 
 transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 0.153606, 1.03204, 0 )
 layers = 1
@@ -218,7 +217,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-emitting = true
+emitting = false
 amount = 16
 lifetime = 1.0
 one_shot = true
@@ -236,15 +235,11 @@ draw_passes = 1
 draw_pass_1 = SubResource( 4 )
 _sections_unfolded = [ "Draw Passes", "Drawing", "Process Material", "Time", "Transform" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 root_node = NodePath("../Mesh")
-autoplay = ""
-speed_scale = 1.0
-active = true
-current_animation = "Break"
 anims/Break = SubResource( 5 )
 anims/Spawn = SubResource( 6 )
 playback/active = true

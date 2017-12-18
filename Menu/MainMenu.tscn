@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Menu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Data/Textures/mainmenu.png" type="Texture" id=2]
@@ -7,8 +7,7 @@
 [ext_resource path="res://Menu/HSplitContainer.gd" type="Script" id=5]
 [ext_resource path="res://Menu/LevelButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Data/Textures/000.png" type="Texture" id=7]
-[ext_resource path="res://Data/Textures/groundtexture.png" type="Texture" id=8]
-[ext_resource path="res://Data/Textures/snowflake.png" type="Texture" id=9]
+[ext_resource path="res://Data/Textures/001.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -18,7 +17,7 @@ use_filter = true
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -29,14 +28,13 @@ margin_top = 32.0
 margin_right = 162.0
 margin_bottom = 74.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 size_flags_horizontal = 1
 size_flags_vertical = 4
 script = ExtResource( 1 )
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Sprite" type="TextureRect" parent="."]
+[node name="Sprite" type="TextureRect" parent="." index="0"]
 
 show_behind_parent = true
 anchor_left = 0.0
@@ -49,15 +47,15 @@ margin_right = 1824.0
 margin_bottom = 1050.0
 rect_scale = Vector2( 0.56, 0.56 )
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 2 )
 expand = true
+stretch_mode = 0
 _sections_unfolded = [ "Margin", "Size Flags" ]
 
-[node name="Play" type="Button" parent="."]
+[node name="Play" type="Button" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -68,7 +66,6 @@ margin_top = 279.0
 margin_right = 423.0
 margin_bottom = 359.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
@@ -82,7 +79,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Next" type="Button" parent="."]
+[node name="Next" type="Button" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -93,7 +90,6 @@ margin_top = -13.0
 margin_right = 566.0
 margin_bottom = 252.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
@@ -107,7 +103,7 @@ flat = false
 align = 0
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Exit" type="Button" parent="."]
+[node name="Exit" type="Button" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -118,7 +114,6 @@ margin_top = 403.0
 margin_right = 422.0
 margin_bottom = 489.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
@@ -133,7 +128,7 @@ align = 1
 script = ExtResource( 4 )
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="LevelSelector" type="Control" parent="."]
+[node name="LevelSelector" type="Control" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -144,41 +139,38 @@ margin_top = -12.0
 margin_right = 739.0
 margin_bottom = 144.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 5 )
 
-[node name="LevelButton" parent="LevelSelector" instance=ExtResource( 6 )]
+[node name="LevelButton" parent="LevelSelector" index="0" instance=ExtResource( 6 )]
 
 margin_left = -150.0
 margin_right = 1219.0
 rect_rotation = -0.0558841
 name = "Scary Snowman"
+max_presents = 1
 
-[node name="LevelButton2" parent="LevelSelector" instance=ExtResource( 6 )]
+[node name="LevelButton2" parent="LevelSelector" index="1" instance=ExtResource( 6 )]
 
 margin_left = -150.0
 margin_right = 62.0
 margin_bottom = 156.0
 texture = ExtResource( 7 )
 name = "Dominion"
+max_presents = 1
 level = "res://Levels/000.tscn"
 
-[node name="LevelButton3" parent="LevelSelector" instance=ExtResource( 6 )]
+[node name="LevelButton3" parent="LevelSelector" index="2" instance=ExtResource( 6 )]
 
 margin_left = -150.0
 margin_right = 62.0
 margin_bottom = 156.0
 texture = ExtResource( 8 )
-
-[node name="LevelButton4" parent="LevelSelector" instance=ExtResource( 6 )]
-
-margin_left = -150.0
-margin_right = 1209.0
-margin_bottom = 670.0
-texture = ExtResource( 9 )
+name = "Hurry Up"
+max_presents = 1
+level = "res://Levels/001.tscn"
 
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
 

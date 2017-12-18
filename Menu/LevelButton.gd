@@ -1,6 +1,7 @@
 extends Control
 
 export var name = "Name"
+export var max_presents = 1
 export(String,FILE) var level = "res://Levels/002.tscn"
 
 var time = "Not Finished"

@@ -8,7 +8,6 @@ export var SPEED_LIMIT = 35
 var steer_angle = 0.0
 var steer_target = 0.0
 
-var steer_timer = 0.0
 
 func _ready():
 	engine_force = 50
@@ -21,14 +20,6 @@ func _ready():
 func power_up(name,duration,value):
 	if name == "speed":
 		if has_method("set_linear_velocity"): set_linear_velocity(get_linear_velocity() + get_linear_velocity().normalized()*value)
-	if name == "steer":
-		steer_timer = duration
-		steering = 0
-
-func _process(delta):
-	steer_timer -= delta
-	#rotation.x = clamp(rotation.x,-PI/4,PI/4)
-	#rotation.z = clamp(rotation.z,-PI/4,PI/4)
 
 func _physics_process(delta):
 	#print(get_linear_velocity())
@@ -65,4 +56,4 @@ func _physics_process(delta):
 		if (steer_target < steer_angle):
 			steer_angle = steer_target
 	
-	if steer_timer < 0: steering = steer_angle
+	steering = steer_angle

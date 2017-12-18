@@ -1,7 +1,7 @@
 extends Area
 
 export(String,"","speed","steer","ghost") var force_effect = ""
-var effects = ["speed","steer","ghost"]
+var effects = ["speed","ghost"]
 var current_effect
 var duration = 0
 var hit = false
@@ -40,7 +40,6 @@ func _on_body_entered( body ):
 		current_effect = effects[rand_range(0,effects.size())]
 		if force_effect != "": current_effect = force_effect
 		if current_effect == "speed": body.power_up(current_effect,0,10)
-		elif current_effect == "steer": body.power_up(current_effect,3,0)
 		elif current_effect == "ghost": 
 			duration = 5
 			player.set_collision_mask_bit(1,false)
