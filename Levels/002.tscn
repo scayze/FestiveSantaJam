@@ -18,8 +18,9 @@
 [ext_resource path="res://Tiles/tree03.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Tiles/Present.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Tiles/Road.tscn" type="PackedScene" id=18]
-[ext_resource path="res://vfx/Particles.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Data/vfx/Particles.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Data/Textures/snowflake.png" type="Texture" id=20]
+
 
 [sub_resource type="GIProbeData" id=1]
 

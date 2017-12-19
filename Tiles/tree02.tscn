@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Mesh/tree02.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://Data/Mesh/tree02.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://Scripts/genmesh.gd" type="Script" id=2]
+
 
 
 [node name="tree02" type="MeshInstance"]

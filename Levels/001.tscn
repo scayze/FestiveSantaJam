@@ -6,7 +6,7 @@
 [ext_resource path="res://Tiles/SnowBallTrap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tiles/FinishTrigger.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Tiles/rock05.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Mesh/rock05.tres" type="ArrayMesh" id=7]
+[ext_resource path="res://Data/Mesh/rock05.tres" type="ArrayMesh" id=7]
 [ext_resource path="res://Scripts/genmesh.gd" type="Script" id=8]
 [ext_resource path="res://Tiles/RigidBlock.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Tiles/rock02.tscn" type="PackedScene" id=10]
@@ -19,9 +19,11 @@
 [ext_resource path="res://Tiles/Present.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Tiles/Road.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Data/Textures/groundtexture.png" type="Texture" id=19]
-[ext_resource path="res://vfx/Particles.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Data/vfx/Particles.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Data/Textures/snowflake.png" type="Texture" id=21]
 [ext_resource path="res://Scripts/Snowman.gd" type="Script" id=22]
+
+
 
 [sub_resource type="GIProbeData" id=1]
 

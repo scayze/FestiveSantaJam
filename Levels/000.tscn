@@ -12,8 +12,9 @@
 [ext_resource path="res://Tiles/Present.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Tiles/FinishTrigger.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Tiles/RigidBlock.tscn" type="PackedScene" id=12]
-[ext_resource path="res://vfx/Particles.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Data/vfx/Particles.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Data/Textures/snowflake.png" type="Texture" id=14]
+
 
 [sub_resource type="ProceduralSky" id=1]
 

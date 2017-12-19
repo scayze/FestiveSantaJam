@@ -1,6 +1,7 @@
 extends Control
 
 func _on_Restart_pressed():
+	get_tree().set_pause(false)
 	get_parent().restart()
 	hide()
 

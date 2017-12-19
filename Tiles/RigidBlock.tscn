@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/RigidBlock.gd" type="Script" id=1]
-[ext_resource path="res://Mesh/mat_crate.tres" type="Material" id=2]
-[ext_resource path="res://Mesh/Crate.tres" type="ArrayMesh" id=3]
+[ext_resource path="res://Data/Mesh/mat_crate.tres" type="Material" id=2]
+[ext_resource path="res://Data/Mesh/Crate.tres" type="ArrayMesh" id=3]
+
 
 [sub_resource type="BoxShape" id=1]
 

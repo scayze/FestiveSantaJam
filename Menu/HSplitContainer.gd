@@ -7,10 +7,9 @@ func _ready():
 	update()
 
 func update_stats(time):
-	if selected_level.time.is_valid_float(): 
-		if float(time) > float(selected_level.time):
-			selected_level.time = time
-	else: selected_level.time = time
+	if time < selected_level.time:
+		selected_level.time = time
+
 
 func update():
 	selected_level = get_child(selected_idx)

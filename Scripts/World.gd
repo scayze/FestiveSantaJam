@@ -43,13 +43,7 @@ func _process(delta):
 func play_update(delta):
 	var cam_rot = (camera.rotation.y-vehicle.rotation.y)
 	var cam_goal = vehicle.translation - Vector3(15,-13,0).rotated(Vector3(0,1,0),vehicle.rotation.y - PI/2)
-	var vec = (cam_goal-camera.translation)/5.0
-	if vec.length() > 1.0/5.0:
-		camera.translation += (cam_goal-camera.translation).normalized()/5.0
-	else:
-		camera.translation += (cam_goal-camera.translation)
 	camera.translation = cam_goal
-	#camera.translation.z = vehicle.translation.z
 	camera.look_at(vehicle.translation + Vector3(0,5,0),Vector3(0,1,0))
 	
 	if Input.is_action_just_pressed("restart"): restart()
@@ -59,6 +53,7 @@ func play_update(delta):
 		print(get_tree().is_paused())
 
 func play(path):
+	get_tree().set_pause(false)
 	state = PLAY
 	finish_menu.hide()
 	timer.time_passed = 0.0
@@ -69,7 +64,7 @@ func finish():
 	state = POST_PLAY
 	finish_menu.show()
 	finish_menu.get_node("Time").text = timer.text
-	main_menu.update(timer.text)
+	main_menu.update(timer.time_passed)
 	timer.hide()
 
 func back():

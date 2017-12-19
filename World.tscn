@@ -19,13 +19,13 @@ extra_spacing_char = 1
 font_data = SubResource( 1 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 pause_mode = 2
 script = ExtResource( 1 )
 _sections_unfolded = [ "Geometry", "Pause" ]
 
-[node name="Timer" type="Label" parent="." index="0"]
+[node name="Timer" type="Label" parent="."]
 
 pause_mode = 1
 visible = false
@@ -49,7 +49,7 @@ max_lines_visible = -1
 script = ExtResource( 2 )
 _sections_unfolded = [ "Pause", "custom_fonts" ]
 
-[node name="Menu" parent="." index="1" instance=ExtResource( 3 )]
+[node name="Menu" parent="." instance=ExtResource( 3 )]
 
 pause_mode = 2
 anchor_left = 0.5
@@ -64,25 +64,23 @@ rect_clip_content = false
 size_flags_stretch_ratio = 2.0
 _sections_unfolded = [ "Anchor", "Grow Direction", "Pause", "custom_fonts" ]
 
-[node name="Camera" type="Camera" parent="." index="2"]
+[node name="Camera" type="Camera" parent="."]
 
 transform = Transform( -4.37114e-008, 0.362395, -0.932025, 0, 0.932025, 0.362395, 1, 1.58408e-008, -4.07401e-008, 0, 0, 0 )
-keep_aspect = 0
-vaspect = false
+projection = 0
+fov = 70.0
+near = 0.05
+far = 200.0
+keep_aspect = 1
+current = true
 cull_mask = 1048575
 environment = null
 h_offset = 0.0
 v_offset = 0.0
-doppler_tracking = 0
-projection = 0
-current = true
-fov = 70.0
-size = 1.0
-near = 0.05
-far = 200.0
+doppler/tracking = 0
 _sections_unfolded = [ "Transform" ]
 
-[node name="FinishMenu" parent="." index="3" instance=ExtResource( 4 )]
+[node name="FinishMenu" parent="." instance=ExtResource( 4 )]
 
 pause_mode = 2
 visible = false
@@ -96,7 +94,7 @@ margin_right = -469.0
 margin_bottom = -257.0
 _sections_unfolded = [ "Anchor", "Pause" ]
 
-[node name="PauseMenu" parent="." index="4" instance=ExtResource( 5 )]
+[node name="PauseMenu" parent="." instance=ExtResource( 5 )]
 
 pause_mode = 2
 visible = false
